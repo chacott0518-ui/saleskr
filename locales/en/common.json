@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "home": "Home",
+    "company": "Company",
+    "business": "Business",
+    "news": "News",
+    "contact": "Contact",
+    "recruit": "Recruit"
+  },
+  "subnav": {
+    "ceo": "CEO Message",
+    "company": "Company",
+    "locations": "Locations",
+    "history": "History",
+    "commerce": "Commerce Models",
+    "brands": "Own Brands"
+  },
+  "hero": {
+    "eyebrow": "KOREAN B2B EXPORT SPECIALIST",
+    "headline": "Your Trusted Partner for Korean Food & Beauty Wholesale",
+    "subtext": "Direct sourcing from Korean manufacturers. Stable supply, competitive pricing, fast export.",
+    "cta_primary": "Get Wholesale Price List",
+    "cta_secondary": "Request Quotation",
+    "badge_brands": "70+ Korean Brands",
+    "badge_oem": "OEM & Private Label Available",
+    "badge_response": "Response Within 24 Hours"
+  },
+  "about": {
+    "eyebrow": "ABOUT SALESKR",
+    "headline_1": "Connecting innovative Korean",
+    "headline_2": "Products with the World.",
+    "description": "SalesKR is a global B2B distribution partner, delivering premium Korean cosmetics and food products worldwide. As a direct sourcing specialist with 70+ brand networks, we offer the best products with competitive pricing and stable supply chains.",
+    "stat_brands": "Korean Brands",
+    "stat_countries": "Export Countries",
+    "stat_network": "Partner Network"
+  },
+  "whatwedo": {
+    "eyebrow": "WHAT WE DO",
+    "headline_1": "What We Do",
+    "headline_2": "to Drive Success",
+    "subtext": "SalesKR is continuously evolving to be at the heart of Korean exports, meeting the ever-changing needs of our global partners.",
+    "card_b2b": "Business to Business",
+    "card_food": "K-Food & Kimchi",
+    "card_oem": "OEM / Private Label"
+  },
+  "export": {
+    "headline_1": "Export",
+    "headline_2": "to Various Countries",
+    "stat1_label": "countries with global export coverage",
+    "stat1_sub": "We are exporting to numerous countries worldwide",
+    "stat2_label": "logistics partners worldwide",
+    "stat2_sub": "We confidently handle logistics anywhere",
+    "stat3_label": "Partner Brands",
+    "stat3_sub": "Connected with over 300 brands",
+    "mobile_title": "Where we export to"
+  },
+  "awards": {
+    "eyebrow": "RECOGNITION",
+    "headline_1": "Our Awards",
+    "headline_2": "& Recognitions"
+  },
+  "updates": {
+    "title": "Latest updates from SalesKR",
+    "about_card": "About SalesKR",
+    "about_text": "Partner with SalesKR, The leader in Korean B2B exports",
+    "locations_card": "SalesKR locations",
+    "locations_text": "Head office & branch location information",
+    "locations_sub": "Korean products, expanding globally",
+    "clock_title": "Local times in major regions"
+  },
+  "contact_banner": {
+    "title": "contact",
+    "subtext": "If you have any inquiries about SalesKR, please contact us at any time.",
+    "button": "Contact Us"
+  },
+  "footer": {
+    "tagline": "Bringing the Best of Korean Products Worldwide",
+    "download": "Download Company Profile",
+    "hq_title": "Headquarters in Korea",
+    "branch_poland": "Branch in Poland",
+    "branch_russia": "Branch in Russia",
+    "branch_vietnam": "Branch in Vietnam",
+    "copyright": "Copyright © SalesKR All rights reserved"
+  },
+  "contact_page": {
+    "title": "Contact",
+    "subtitle": "Get in touch with our team",
+    "step1": "Select Inquiry Type",
+    "step1_desc": "Choose the category that best describes your inquiry.",
+    "step2": "Fill in Your Details",
+    "type_general": "General Inquiry",
+    "type_beauty": "K-Beauty Products",
+    "type_food": "K-Food & Kimchi",
+    "type_oem": "OEM & Private Label",
+    "type_partner": "Partnership",
+    "type_other": "Other",
+    "form_company": "Company Name",
+    "form_person": "Contact Person",
+    "form_phone": "Phone",
+    "form_email": "Email",
+    "form_country": "Country",
+    "form_country_placeholder": "Select your country",
+    "form_products": "Interested Products",
+    "form_products_placeholder": "e.g. K-Beauty skincare, Kimchi, OEM cosmetics",
+    "form_details": "Inquiry Details",
+    "form_details_placeholder": "Tell us about your requirements...",
+    "form_whatsapp": "WhatsApp ID",
+    "form_whatsapp_placeholder": "Optional — for faster communication",
+    "form_consent": "I agree to the collection and use of my personal information for the purpose of responding to my inquiry.",
+    "form_submit": "Contact Us",
+    "success": "Thank you for your inquiry. We will respond within 24 hours."
+  },
+  "recruit_page": {
+    "title": "Recruit",
+    "intro": "SalesKR is driving meaningful change, committed to innovation and progress for all.",
+    "apply": "Apply Now"
+  }
+}
