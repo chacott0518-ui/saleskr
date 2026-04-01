@@ -289,29 +289,58 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="pb-6 pt-14 text-white md:pb-8 md:pt-16" style={{ background: "linear-gradient(135deg, #071729 0%, #0E3572 60%, #154C8A 100%)" }}>
+      <footer className="pb-3 pt-14 text-white md:pb-4 md:pt-16" style={{ background: "linear-gradient(135deg, #071729 0%, #0E3572 60%, #154C8A 100%)" }}>
         <div className="mx-auto max-w-6xl px-5 md:px-6">
 
-          {/* 데스크탑 */}
+          {/* 데스크톱 */}
           <div className="hidden md:grid md:gap-12" style={{ gridTemplateColumns: "1fr 2fr" }}>
             <div className="flex flex-col justify-between">
               <div>
                 <h3 className="max-w-xs leading-snug text-white" style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-0.02em", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
                   {t("footer.tagline")}
                 </h3>
+                {/* ✅ 수정: 데스크톱 버튼 — Family Site와 동일한 height/fontSize, 텍스트 "Company Profile ↓"로 단축 */}
                 <div className="mt-6 flex flex-col gap-2">
                   
                     <a
                     href="#"
-                    style={{ width: 210, height: 38, borderRadius: 8, fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", background: "#1E5FA8", color: "white", textDecoration: "none", transition: "background 0.2s" }}
+                    style={{
+                      width: 210,
+                      height: 38,
+                      borderRadius: 8,
+                      fontSize: 12,
+                      fontWeight: 600,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: "#1E5FA8",
+                      color: "white",
+                      textDecoration: "none",
+                      transition: "background 0.2s",
+                      whiteSpace: "nowrap",
+                      padding: "0 16px",
+                    }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#154C8A")}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#1E5FA8")}
                   >
-                    {t("footer.download")} ↓
+                    Company Profile ↓
                   </a>
                   <div style={{ position: "relative", width: 210 }}>
                     <select
-                      style={{ width: 210, height: 38, borderRadius: 8, fontSize: 12, fontWeight: 600, background: "#1B3A6B", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.2)", padding: "0 16px", appearance: "none", WebkitAppearance: "none", outline: "none" }}
+                      style={{
+                        width: 210,
+                        height: 38,
+                        borderRadius: 8,
+                        fontSize: 12,
+                        fontWeight: 600,
+                        background: "#1B3A6B",
+                        color: "rgba(255,255,255,0.8)",
+                        border: "1px solid rgba(255,255,255,0.2)",
+                        padding: "0 16px",
+                        appearance: "none",
+                        WebkitAppearance: "none",
+                        outline: "none",
+                      }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#243F6B")}
                       onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#1B3A6B")}
                     >
@@ -327,7 +356,7 @@ export default function Footer() {
             <div>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.4)" }}>Headquarters</p>
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Headquarters</p>
                   <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
                     B13, 602 Yeongdong-daero,<br />
                     Gangnam-gu, Seoul, 06083,<br />
@@ -335,7 +364,7 @@ export default function Footer() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.4)" }}>Contact</p>
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Contact</p>
                   <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
                     대표: Jung, Yong Chul<br />
                     TEL: +82-2-336-1334<br />
@@ -354,11 +383,45 @@ export default function Footer() {
             <h3 className="leading-snug text-white" style={{ fontSize: "15px", fontWeight: 900, letterSpacing: "-0.02em" }}>
               {t("footer.tagline")}
             </h3>
+            {/* ✅ 수정: 모바일 버튼 — Family Site select와 동일한 height/fontSize, 텍스트 단축 */}
             <div className="mt-4 flex gap-2">
-              <a href="#" style={{ flex: 1, height: 34, borderRadius: 8, fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", background: "#1E5FA8", color: "white", textDecoration: "none" }}>
-                {t("footer.download")} ↓
+              
+                <a
+                href="#"
+                style={{
+                  flex: 1,
+                  height: 34,
+                  borderRadius: 8,
+                  fontSize: 11,
+                  fontWeight: 600,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "#1E5FA8",
+                  color: "white",
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                  padding: "0 10px",
+                }}
+              >
+                Company Profile ↓
               </a>
-              <select style={{ flex: 1, height: 34, borderRadius: 8, fontSize: 11, fontWeight: 600, background: "#1B3A6B", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.2)", padding: "0 8px", appearance: "none", WebkitAppearance: "none", outline: "none" }}>
+              <select
+                style={{
+                  flex: 1,
+                  height: 34,
+                  borderRadius: 8,
+                  fontSize: 11,
+                  fontWeight: 600,
+                  background: "#1B3A6B",
+                  color: "rgba(255,255,255,0.8)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  padding: "0 8px",
+                  appearance: "none",
+                  WebkitAppearance: "none",
+                  outline: "none",
+                }}
+              >
                 <option>Family Site ▾</option>
                 <option>SalesKR B2C Store</option>
                 <option>SalesKR Global</option>
@@ -381,19 +444,17 @@ export default function Footer() {
                   TEL: +82-2-336-1334<br />
                   FAX: +82-0504-065-2684
                 </p>
-                <p style={{ fontSize: "9px", color: "rgba(255,255,255,0.4)", marginTop: 4 }}>
-                  876-87-01523
-                </p>
+                <p style={{ fontSize: "9px", color: "rgba(255,255,255,0.4)", marginTop: 4 }}>876-87-01523</p>
               </div>
             </div>
           </div>
 
           {/* 하단 바 */}
-          <div className="mt-8 pt-5 md:mt-12 md:pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-            <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
-              <p className="text-[10px] md:text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-                {t("footer.copyright")}
-              </p>
+          <div className="mt-5 pt-4 md:mt-6 md:pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+  <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+    <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+      {t("footer.copyright")}
+    </p>
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowPrivacy(true)}
@@ -416,7 +477,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <Link href="/">
-                  <img src="/images/logo.png" alt="SalesKR" style={{ height: 60, width: "auto", objectFit: "contain" }} />
+                  <img src="/images/logo.png" alt="SalesKR" style={{ height: 36, width: "auto", objectFit: "contain" }} />
                 </Link>
               </div>
             </div>
