@@ -48,17 +48,15 @@ export default function MobileDrawer({ links, onClose }: MobileDrawerProps) {
             className="flex items-center justify-between px-6 py-5"
             style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}
           >
-            <span
+            <img
+              src="/images/logo.png"
+              alt="SalesKR"
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "20px",
-                fontWeight: 800,
-                letterSpacing: "-0.02em",
-                color: "white",
+                height: "90px",
+                width: "auto",
+                objectFit: "contain",
               }}
-            >
-              Sales<span style={{ color: "#4A9EFF" }}>KR</span>
-            </span>
+            />
             <button
               onClick={onClose}
               aria-label="Close menu"

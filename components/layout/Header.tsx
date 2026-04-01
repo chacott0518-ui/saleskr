@@ -80,24 +80,22 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          transparent ? "bg-transparent" : "bg-white/96 shadow-sm backdrop-blur-md"
+          transparent ? "bg-transparent" : ""
         }`}
+style={transparent ? {} : { background: "linear-gradient(135deg, #0A1F44 0%, #1E5FA8 100%)", boxShadow: "0 2px 20px rgba(10,31,68,0.3)" }}
       >
         <div className="mx-auto flex h-[56px] max-w-6xl items-center justify-between px-5 md:h-[72px] md:px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span
+            <img
+              src="/images/logo.png"
+              alt="SalesKR"
               style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "24px",
-                fontWeight: 800,
-                letterSpacing: "-0.03em",
-                color: transparent ? "white" : "#0A1F44",
-                transition: "color 0.3s ease",
+                height: "90px",
+                width: "auto",
+                objectFit: "contain",
               }}
-            >
-              Sales<span style={{ color: "#1E5FA8" }}>KR</span>
-            </span>
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -113,10 +111,8 @@ export default function Header() {
                   href={link.href}
                   className={`flex items-center gap-1 text-[15px] font-medium transition-colors duration-200 hover:text-blue ${
                     isActive(link.href)
-                      ? "font-semibold text-blue"
-                      : transparent
-                      ? "text-white/90"
-                      : "text-gray-700"
+                      ? "font-semibold text-white"
+                      : "text-white/90"
                   }`}
                 >
                   {link.label}
@@ -187,9 +183,7 @@ export default function Header() {
             <button
               onClick={() => setLang(lang === "en" ? "ko" : "en")}
               className={`flex cursor-pointer items-center gap-1.5 rounded-md border px-3 py-2 text-sm font-semibold transition-colors ${
-                transparent
-                  ? "border-white/30 text-white/80 hover:bg-white/10"
-                  : "border-gray-300 text-gray-600 hover:bg-gray-100"
+                "border-white/30 text-white/80 hover:bg-white/10"
               }`}
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -227,7 +221,7 @@ export default function Header() {
             <button
               onClick={() => setLang(lang === "en" ? "ko" : "en")}
               className={`flex items-center gap-1 rounded border px-2.5 py-1.5 text-xs font-semibold transition-colors ${
-                transparent ? "border-white/30 text-white/80" : "border-gray-300 text-gray-600"
+                "border-white/30 text-white/80"
               }`}
             >
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -246,7 +240,7 @@ export default function Header() {
                 <span
                   key={i}
                   className="block h-[2px] w-5 rounded-full transition-colors"
-                  style={{ backgroundColor: transparent ? "white" : "#0A1F44" }}
+                  style={{ backgroundColor: "white" }}
                 />
               ))}
             </button>

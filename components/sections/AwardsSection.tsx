@@ -11,14 +11,14 @@ import "swiper/css/pagination";
 
 const slides = [
   {
-    image: "/images/kita-certificate.jpg",
+    image: "/images/kita-certificate.png",
     title: "The 61st Trade Day",
     subtitle: "Won the '$50 million Export Tower' Award",
     issuer: "Ministry of Trade, Industry and Energy / KITA",
     date: "2024.12.05"
   },
   {
-    image: "/images/business-registration.jpg",
+    image: "/images/business-registration.png",
     title: "Business Registration",
     subtitle: "Official Corporate Registration",
     issuer: "National Tax Service, Republic of Korea",
