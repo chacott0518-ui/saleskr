@@ -366,7 +366,7 @@ export default function Footer() {
                 <div>
                   <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Contact</p>
                   <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
-                    대표: Jung, Yong Chul<br />
+                    CEO: Jung, Yong Chul<br />
                     TEL: +82-2-336-1334<br />
                     FAX: +82-0504-065-2684
                   </p>
