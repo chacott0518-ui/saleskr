@@ -46,7 +46,7 @@ export default function CEOPage() {
             <div className="w-full flex-shrink-0 md:w-64">
               <div className="overflow-hidden rounded-2xl bg-[#F0EEE8]">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
+                  src="/images/ceo-photo.jpg"
                   alt="CEO Jung, Yong Chul"
                   className="h-80 w-full object-cover object-top md:h-96"
                 />
