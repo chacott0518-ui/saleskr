@@ -170,7 +170,7 @@ Article 8. Member Obligations
 ④ Members must not infringe upon the intellectual property rights of the operator, Site, or third parties.
 
 Article 9. Service Hours
-① Services are available 24 hours a day, 365 days a year in principle. The Site may temporarily suspend services for system maintenance, expansion, or replacement.
+① Services are available 24 hours a day, 365 days a year in principle.
 ② The Site may suspend services without prior notice in the following cases:
 - Emergency system inspection, expansion, replacement, failure, or malfunction
 - Force majeure events such as national emergencies, power outages, or natural disasters
@@ -193,11 +193,11 @@ Members must not engage in the following acts:
 ⑧ Other acts in violation of applicable laws
 
 Article 12. Management of Posts
-① The operator is responsible for managing posts and materials on the Site and must monitor and delete problematic content upon discovery.
+① The operator is responsible for managing posts and materials on the Site.
 ② The operator may delete or move posts without prior member consent if required by public authorities.
 
 Article 13. Copyright of Posts
-① The copyright of posts made by members belongs to the posting member. The Site may not use posts commercially without the poster's consent.
+① The copyright of posts made by members belongs to the posting member.
 ② Members may not commercially use information obtained through the service.
 
 Article 14. Disclaimer
@@ -232,7 +232,7 @@ const termsKo = `이용약관
 ② 타인의 정보를 도용하거나 허위의 정보를 등록한 회원은 사이트 이용과 관련하여 아무런 권리를 주장할 수 없으며, 관계 법령에 따라 처벌받을 수 있습니다.
 
 제6조 개인정보처리방침
-운영자는 관계 법령이 정하는 바에 따라 회원의 개인정보를 보호하기 위하여 노력합니다. 회원의 개인정보 보호에 관하여는 관계법령 및 사이트가 정하는 개인정보처리방침에 따릅니다.
+운영자는 관계 법령이 정하는 바에 따라 회원의 개인정보를 보호하기 위하여 노력합니다.
 
 제7조 운영자의 의무
 ① 운영자는 이용회원으로부터 제기되는 의견이나 불만이 정당하다고 인정할 경우에는 가급적 빨리 처리하여야 합니다.
@@ -246,30 +246,22 @@ const termsKo = `이용약관
 
 제9조 서비스 이용 시간
 ① 서비스 이용 시간은 업무상 또는 기술상 특별한 지장이 없는 한 연중무휴 1일 24시간을 원칙으로 합니다.
-② 다음의 경우에는 사전 공지나 예고 없이 서비스를 일시적 혹은 영구적으로 중단할 수 있습니다.
-- 긴급한 시스템 점검, 증설, 교체, 고장 혹은 오동작을 일으키는 경우
-- 국가비상사태, 정전, 천재지변 등의 불가항력적인 사유가 있는 경우
-- 전기통신사업법에 규정된 기간통신사업자가 전기통신 서비스를 중지한 경우
-- 서비스 이용의 폭주 등으로 정상적인 서비스 이용에 지장이 있는 경우
+② 긴급한 시스템 점검, 증설, 교체, 고장 또는 천재지변 등의 경우 사전 공지 없이 서비스를 중단할 수 있습니다.
 
 제10조 서비스 이용 해지
 ① 회원이 사이트와의 이용계약을 해지하고자 하는 경우에는 회원 본인이 온라인을 통하여 등록해지 신청을 하여야 합니다.
-② 해지 신청과 동시에 사이트가 제공하는 사이트 관련 프로그램이 회원 관리 화면에서 자동적으로 삭제됩니다.
 
 제11조 서비스 이용 제한
-회원은 다음 각호에 해당하는 행위를 하여서는 아니 됩니다.
 ① 회원 가입 시 혹은 가입 후 정보 변경 시 허위 내용을 등록하는 행위
 ② 타인의 사이트 이용을 방해하거나 정보를 도용하는 행위
 ③ 사이트의 운영진, 직원 또는 관계자를 사칭하는 행위
-④ 사이트, 기타 제3자의 인격권 또는 지적재산권을 침해하거나 업무를 방해하는 행위
+④ 사이트, 기타 제3자의 인격권 또는 지적재산권을 침해하는 행위
 ⑤ 다른 회원의 ID를 부정하게 사용하는 행위
-⑥ 다른 회원에 대한 개인정보를 그 동의 없이 수집, 저장, 공개하는 행위
-⑦ 범죄와 결부된다고 객관적으로 판단되는 행위
-⑧ 기타 관련 법령에 위배되는 행위
+⑥ 범죄와 결부된다고 객관적으로 판단되는 행위
+⑦ 기타 관련 법령에 위배되는 행위
 
 제12조 게시물의 관리
-① 사이트의 게시물과 자료의 관리 및 운영의 책임은 운영자에게 있습니다.
-② 정보통신윤리위원회 등 공공기관의 시정요구가 있는 경우 운영자는 회원의 사전동의 없이 게시물을 삭제하거나 이동할 수 있습니다.
+운영자는 사이트의 게시물과 자료의 관리 및 운영의 책임을 집니다.
 
 제13조 게시물에 대한 저작권
 ① 회원이 사이트 내에 게시한 게시물의 저작권은 게시한 회원에게 귀속됩니다.
@@ -287,30 +279,56 @@ export default function Footer() {
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
 
+  // ✅ 사업자등록번호 — 영문 기본 / 한글 전환 시 한글 표기
+  const bizRegNumber =
+    lang === "ko"
+      ? "사업자등록번호: 876-87-01523"
+      : "Business Registration No: 876-87-01523";
+
   return (
     <>
-      <footer className="pb-3 pt-14 text-white md:pb-4 md:pt-16" style={{ background: "linear-gradient(135deg, #071729 0%, #0E3572 60%, #154C8A 100%)" }}>
+      <footer
+        className="pb-3 pt-14 text-white md:pb-4 md:pt-16"
+        style={{
+          background:
+            "linear-gradient(135deg, #071729 0%, #0E3572 60%, #154C8A 100%)",
+        }}
+      >
         <div className="mx-auto max-w-6xl px-5 md:px-6">
 
-          {/* 데스크톱 */}
-          <div className="hidden md:grid md:gap-12" style={{ gridTemplateColumns: "1fr 2fr" }}>
+          {/* ─── 데스크톱 (md 이상) ─── */}
+          <div
+            className="hidden md:grid md:gap-12"
+            style={{ gridTemplateColumns: "1fr 2fr" }}
+          >
             <div className="flex flex-col justify-between">
               <div>
-                <h3 className="max-w-xs leading-snug text-white" style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-0.02em", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
+                <h3
+                  className="max-w-xs leading-snug text-white"
+                  style={{
+                    fontSize: "22px",
+                    fontWeight: 900,
+                    letterSpacing: "-0.02em",
+                    textShadow: "0 2px 12px rgba(0,0,0,0.4)",
+                  }}
+                >
                   {t("footer.tagline")}
                 </h3>
-                {/* ✅ 수정: 데스크톱 버튼 — Family Site와 동일한 height/fontSize, 텍스트 "Company Profile ↓"로 단축 */}
-                <div className="mt-6 flex flex-col gap-2">
+
+                {/* ✅ Company Profile 버튼만 유지 — Family Site 드롭다운 삭제 */}
+                <div className="mt-6">
                   
                     <a
-                    href="#"
+                    href="/company-profile.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       width: 210,
-                      height: 38,
+                      height: 40,
                       borderRadius: 8,
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: 600,
-                      display: "flex",
+                      display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
                       background: "#1E5FA8",
@@ -320,35 +338,17 @@ export default function Footer() {
                       whiteSpace: "nowrap",
                       padding: "0 16px",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#154C8A")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#1E5FA8")}
+                    onMouseEnter={(e) =>
+                      ((e.currentTarget as HTMLElement).style.background =
+                        "#154C8A")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.currentTarget as HTMLElement).style.background =
+                        "#1E5FA8")
+                    }
                   >
                     Company Profile ↓
                   </a>
-                  <div style={{ position: "relative", width: 210 }}>
-                    <select
-                      style={{
-                        width: 210,
-                        height: 38,
-                        borderRadius: 8,
-                        fontSize: 12,
-                        fontWeight: 600,
-                        background: "#1B3A6B",
-                        color: "rgba(255,255,255,0.8)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                        padding: "0 16px",
-                        appearance: "none",
-                        WebkitAppearance: "none",
-                        outline: "none",
-                      }}
-                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#243F6B")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#1B3A6B")}
-                    >
-                      <option>Family Site ▾</option>
-                      <option>SalesKR B2C Store</option>
-                      <option>SalesKR Global</option>
-                    </select>
-                  </div>
                 </div>
               </div>
             </div>
@@ -356,105 +356,175 @@ export default function Footer() {
             <div>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Headquarters</p>
-                  <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
-                    B13, 602 Yeongdong-daero,<br />
-                    Gangnam-gu, Seoul, 06083,<br />
+                  <p
+                    className="mb-2 text-[11px] font-semibold uppercase tracking-wider"
+                    style={{ color: "rgba(255,255,255,0.4)" }}
+                  >
+                    Headquarters
+                  </p>
+                  <p
+                    className="text-[13px] leading-relaxed"
+                    style={{ color: "rgba(255,255,255,0.88)" }}
+                  >
+                    B13, 602 Yeongdong-daero,
+                    <br />
+                    Gangnam-gu, Seoul, 06083,
+                    <br />
                     Republic of Korea
                   </p>
                 </div>
                 <div>
-                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Contact</p>
-                  <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
-                    CEO: Jung, Yong Chul<br />
-                    TEL: +82-2-336-1334<br />
+                  <p
+                    className="mb-2 text-[11px] font-semibold uppercase tracking-wider"
+                    style={{ color: "rgba(255,255,255,0.4)" }}
+                  >
+                    Contact
+                  </p>
+                  <p
+                    className="text-[13px] leading-relaxed"
+                    style={{ color: "rgba(255,255,255,0.88)" }}
+                  >
+                    CEO: Jung, Yong Chul
+                    <br />
+                    TEL: +82-2-336-1334
+                    <br />
                     FAX: +82-0504-065-2684
                   </p>
-                  <p className="mt-2 text-[12px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-                    사업자등록번호: 876-87-01523
+                  {/* ✅ 사업자등록번호 언어 분기 */}
+                  <p
+                    className="mt-2 text-[12px]"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
+                  >
+                    {bizRegNumber}
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 모바일 */}
+          {/* ─── 모바일 (md 미만) ─── */}
           <div className="block md:hidden">
-            <h3 className="leading-snug text-white" style={{ fontSize: "15px", fontWeight: 900, letterSpacing: "-0.02em" }}>
+            <h3
+              className="leading-snug text-white"
+              style={{ fontSize: "16px", fontWeight: 900, letterSpacing: "-0.02em" }}
+            >
               {t("footer.tagline")}
             </h3>
-            {/* ✅ 수정: 모바일 버튼 — Family Site select와 동일한 height/fontSize, 텍스트 단축 */}
-            <div className="mt-4 flex gap-2">
+
+            {/* ✅ Company Profile 버튼만 — Family Site 삭제 */}
+            <div className="mt-4">
               
-                <a
-                href="#"
+                <a 
+                href="/company-profile.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  flex: 1,
-                  height: 34,
-                  borderRadius: 8,
-                  fontSize: 11,
-                  fontWeight: 600,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  width: "100%",
+                  height: 40,
+                  borderRadius: 8,
+                  fontSize: 13,
+                  fontWeight: 600,
                   background: "#1E5FA8",
                   color: "white",
                   textDecoration: "none",
                   whiteSpace: "nowrap",
-                  padding: "0 10px",
                 }}
               >
                 Company Profile ↓
               </a>
-              <select
-                style={{
-                  flex: 1,
-                  height: 34,
-                  borderRadius: 8,
-                  fontSize: 11,
-                  fontWeight: 600,
-                  background: "#1B3A6B",
-                  color: "rgba(255,255,255,0.8)",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  padding: "0 8px",
-                  appearance: "none",
-                  WebkitAppearance: "none",
-                  outline: "none",
-                }}
-              >
-                <option>Family Site ▾</option>
-                <option>SalesKR B2C Store</option>
-                <option>SalesKR Global</option>
-              </select>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3" style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 16 }}>
+            <div
+              className="mt-5 grid grid-cols-2 gap-3"
+              style={{
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+                paddingTop: 16,
+              }}
+            >
               <div>
-                <p style={{ fontSize: "9px", fontWeight: 600, color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>HQ</p>
-                <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}>
-                  B13, 602 Yeongdong-daero,<br />
-                  Gangnam-gu, Seoul 06083,<br />
+                <p
+                  style={{
+                    fontSize: "9px",
+                    fontWeight: 600,
+                    color: "rgba(255,255,255,0.35)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    marginBottom: 6,
+                  }}
+                >
+                  HQ
+                </p>
+                <p
+                  style={{
+                    fontSize: "11px",
+                    color: "rgba(255,255,255,0.85)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  B13, 602 Yeongdong-daero,
+                  <br />
+                  Gangnam-gu, Seoul 06083,
+                  <br />
                   Republic of Korea
                 </p>
               </div>
               <div>
-                <p style={{ fontSize: "9px", fontWeight: 600, color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>Contact</p>
-                <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}>
-                  Jung, Yong Chul<br />
-                  TEL: +82-2-336-1334<br />
+                <p
+                  style={{
+                    fontSize: "9px",
+                    fontWeight: 600,
+                    color: "rgba(255,255,255,0.35)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    marginBottom: 6,
+                  }}
+                >
+                  Contact
+                </p>
+                <p
+                  style={{
+                    fontSize: "11px",
+                    color: "rgba(255,255,255,0.85)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Jung, Yong Chul
+                  <br />
+                  TEL: +82-2-336-1334
+                  <br />
                   FAX: +82-0504-065-2684
                 </p>
-                <p style={{ fontSize: "9px", color: "rgba(255,255,255,0.4)", marginTop: 4 }}>876-87-01523</p>
+                {/* ✅ 사업자등록번호 모바일 언어 분기 */}
+                <p
+                  style={{
+                    fontSize: "10px",
+                    color: "rgba(255,255,255,0.4)",
+                    marginTop: 4,
+                  }}
+                >
+                  {bizRegNumber}
+                </p>
               </div>
             </div>
           </div>
 
-          {/* 하단 바 */}
-          <div className="mt-5 pt-4 md:mt-6 md:pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-  <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
-    <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-      {t("footer.copyright")}
-    </p>
+          {/* ─── 하단 바 — PC/모바일 공통 ─── */}
+          <div
+            className="mt-5 pt-4 md:mt-6 md:pt-5"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
+          >
+            <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+              <p
+                className="text-[11px]"
+                style={{ color: "rgba(255,255,255,0.4)" }}
+              >
+                {t("footer.copyright")}
+              </p>
+
+              {/* ✅ Instagram 아이콘 완전 삭제 */}
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowPrivacy(true)}
@@ -463,7 +533,9 @@ export default function Footer() {
                 >
                   {lang === "ko" ? "개인정보처리방침" : "Privacy Policy"}
                 </button>
-                <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 10 }}>|</span>
+                <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 10 }}>
+                  |
+                </span>
                 <button
                   onClick={() => setShowTerms(true)}
                   className="text-[11px] transition-colors hover:text-white"
@@ -471,21 +543,23 @@ export default function Footer() {
                 >
                   {lang === "ko" ? "이용약관" : "Terms of Service"}
                 </button>
-                <a href="#" aria-label="Instagram" style={{ color: "rgba(255,255,255,0.4)" }} className="transition-colors hover:text-white/70">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2m-.25 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9m9.94 1.13a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z" />
-                  </svg>
-                </a>
+
+                {/* ✅ 로고 크기 키움: 모바일 h-8 / PC h-11 */}
                 <Link href="/">
-                  <img src="/images/logo.png" alt="SalesKR" style={{ height: 36, width: "auto", objectFit: "contain" }} />
+                  <img
+                    src="/images/logo.png"
+                    alt="SalesKR"
+                    className="h-8 w-auto object-contain md:h-11"
+                  />
                 </Link>
               </div>
             </div>
           </div>
+
         </div>
       </footer>
 
-      {/* 개인정보 모달 */}
+      {/* ─── 개인정보처리방침 모달 ─── */}
       <AnimatePresence>
         {showPrivacy && (
           <motion.div
@@ -504,21 +578,48 @@ export default function Footer() {
               className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid #E0DED8" }}>
+              <div
+                className="flex items-center justify-between px-6 py-4"
+                style={{ borderBottom: "1px solid #E0DED8" }}
+              >
                 <h3 className="text-[16px] font-bold text-navy">
                   {lang === "ko" ? "개인정보처리방침" : "Privacy Policy"}
                 </h3>
-                <button onClick={() => setShowPrivacy(false)} className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-100">
+                <button
+                  onClick={() => setShowPrivacy(false)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-100"
+                >
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 5l10 10M15 5L5 15" stroke="#666" strokeWidth="2" strokeLinecap="round" />
+                    <path
+                      d="M5 5l10 10M15 5L5 15"
+                      stroke="#666"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </button>
               </div>
-              <div className="overflow-y-auto px-6 py-5" style={{ maxHeight: "60vh", whiteSpace: "pre-line", fontSize: "13px", lineHeight: "1.8", color: "#444" }}>
+              <div
+                className="overflow-y-auto px-6 py-5"
+                style={{
+                  maxHeight: "60vh",
+                  whiteSpace: "pre-line",
+                  fontSize: "13px",
+                  lineHeight: "1.8",
+                  color: "#444",
+                }}
+              >
                 {lang === "ko" ? privacyKo : privacyEn}
               </div>
-              <div className="px-6 py-4" style={{ borderTop: "1px solid #E0DED8" }}>
-                <button onClick={() => setShowPrivacy(false)} className="w-full rounded-lg py-3 text-[14px] font-bold text-white" style={{ background: "#1E5FA8" }}>
+              <div
+                className="px-6 py-4"
+                style={{ borderTop: "1px solid #E0DED8" }}
+              >
+                <button
+                  onClick={() => setShowPrivacy(false)}
+                  className="w-full rounded-lg py-3 text-[14px] font-bold text-white"
+                  style={{ background: "#1E5FA8" }}
+                >
                   {lang === "ko" ? "닫기" : "Close"}
                 </button>
               </div>
@@ -527,7 +628,7 @@ export default function Footer() {
         )}
       </AnimatePresence>
 
-      {/* 이용약관 모달 */}
+      {/* ─── 이용약관 모달 ─── */}
       <AnimatePresence>
         {showTerms && (
           <motion.div
@@ -546,21 +647,48 @@ export default function Footer() {
               className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid #E0DED8" }}>
+              <div
+                className="flex items-center justify-between px-6 py-4"
+                style={{ borderBottom: "1px solid #E0DED8" }}
+              >
                 <h3 className="text-[16px] font-bold text-navy">
                   {lang === "ko" ? "이용약관" : "Terms of Service"}
                 </h3>
-                <button onClick={() => setShowTerms(false)} className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-100">
+                <button
+                  onClick={() => setShowTerms(false)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-100"
+                >
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 5l10 10M15 5L5 15" stroke="#666" strokeWidth="2" strokeLinecap="round" />
+                    <path
+                      d="M5 5l10 10M15 5L5 15"
+                      stroke="#666"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </button>
               </div>
-              <div className="overflow-y-auto px-6 py-5" style={{ maxHeight: "60vh", whiteSpace: "pre-line", fontSize: "13px", lineHeight: "1.8", color: "#444" }}>
+              <div
+                className="overflow-y-auto px-6 py-5"
+                style={{
+                  maxHeight: "60vh",
+                  whiteSpace: "pre-line",
+                  fontSize: "13px",
+                  lineHeight: "1.8",
+                  color: "#444",
+                }}
+              >
                 {lang === "ko" ? termsKo : termsEn}
               </div>
-              <div className="px-6 py-4" style={{ borderTop: "1px solid #E0DED8" }}>
-                <button onClick={() => setShowTerms(false)} className="w-full rounded-lg py-3 text-[14px] font-bold text-white" style={{ background: "#1E5FA8" }}>
+              <div
+                className="px-6 py-4"
+                style={{ borderTop: "1px solid #E0DED8" }}
+              >
+                <button
+                  onClick={() => setShowTerms(false)}
+                  className="w-full rounded-lg py-3 text-[14px] font-bold text-white"
+                  style={{ background: "#1E5FA8" }}
+                >
                   {lang === "ko" ? "닫기" : "Close"}
                 </button>
               </div>
