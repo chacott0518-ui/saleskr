@@ -9,27 +9,34 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 const slides = [
-  { eyebrow: "K-BEAUTY EXPORT SPECIALIST", video: "/video/hero-1.mp4" },
-  { eyebrow: "K-FOOD & KIMCHI WHOLESALE", video: "/video/hero-2.mp4" },
-  { eyebrow: "OEM & PRIVATE LABEL", video: "/video/hero-3.mp4" },
-  { eyebrow: "GLOBAL B2B PARTNERSHIP", video: "/video/hero-4.mp4" },
-  { eyebrow: "WORLDWIDE EXPORT NETWORK", video: "/video/hero-5.mp4" },
-  { eyebrow: "KOREAN MANUFACTURING DIRECT", video: "/video/hero-6.mp4" },
-  { eyebrow: "KOREAN B2B SPECIALIST", video: "/video/hero-7.mp4" },
+  { eyebrow: "K-BEAUTY EXPORT SPECIALIST",   video: "/video/hero-1.mp4" },
+  { eyebrow: "K-FOOD & KIMCHI WHOLESALE",    video: "/video/hero-2.mp4" },
+  { eyebrow: "OEM & PRIVATE LABEL",          video: "/video/hero-3.mp4" },
+  { eyebrow: "GLOBAL B2B PARTNERSHIP",       video: "/video/hero-4.mp4" },
+  { eyebrow: "WORLDWIDE EXPORT NETWORK",     video: "/video/hero-5.mp4" },
+  { eyebrow: "KOREAN MANUFACTURING DIRECT",  video: "/video/hero-6.mp4" },
+  { eyebrow: "KOREAN B2B SPECIALIST",        video: "/video/hero-7.mp4" },
 ];
 
 export default function HeroSection() {
-  const { t } = useLanguage();
+  const { lang } = useLanguage();
 
   return (
-    <section className="relative h-[100svh] w-full overflow-hidden" suppressHydrationWarning>
+    <section
+      className="relative h-[100svh] w-full overflow-hidden"
+      suppressHydrationWarning
+    >
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop
         speed={1200}
-        pagination={{ clickable: true, bulletClass: "hero-bullet", bulletActiveClass: "hero-bullet-active" }}
+        pagination={{
+          clickable: true,
+          bulletClass: "hero-bullet",
+          bulletActiveClass: "hero-bullet-active",
+        }}
         className="h-full w-full"
       >
         {slides.map((slide, i) => (
@@ -49,51 +56,89 @@ export default function HeroSection() {
 
             <div className="relative z-10 flex h-full items-center justify-center">
               <div className="mx-auto max-w-[720px] px-5 text-center md:px-8">
-                {/* Eyebrow — desktop only */}
-                <p
-                  className="hidden md:block"
-                  style={{ fontSize: "11px", letterSpacing: "0.15em", fontWeight: 500, color: "rgba(255,255,255,0.7)", textTransform: "uppercase", marginBottom: "20px" }}
+
+                {/* ✅ eyebrow — 데스크톱만 */}
+                <p className="hidden md:block"
+                  style={{
+                    fontSize: "11px",
+                    letterSpacing: "0.15em",
+                    fontWeight: 500,
+                    color: "rgba(255,255,255,0.7)",
+                    textTransform: "uppercase",
+                    marginBottom: "16px",
+                  }}
                 >
-                  {slide.eyebrow}
+                  {lang === "ko"
+                    ? "한국식품 및 건강식품 | 70여개 이상의 정품 한국화장품 브랜드"
+                    : "K-Food, Health Supplements & 70+ Authentic Korean Cosmetic Brands"}
                 </p>
 
-                {/* Desktop headline */}
+                {/* ✅ 데스크톱 헤드라인 — EN/KR */}
                 <h1
                   className="hidden md:block"
-                  style={{ fontSize: "52px", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}
+                  style={{
+                    fontSize: "52px",
+                    fontWeight: 800,
+                    color: "white",
+                    lineHeight: 1.2,
+                    letterSpacing: "-0.02em",
+                  }}
                 >
-                  {t("hero.headline")}
+                  {lang === "ko"
+                    ? <>믿을 수 있는 한국 대표<br />브랜드 공급</>
+                    : <>Your Trusted Source for<br />Korea's Leading Brands</>}
                 </h1>
 
-                {/* Mobile headline — compact, 2 lines max */}
+                {/* ✅ 모바일 헤드라인 — EN/KR */}
                 <h1
                   className="block md:hidden"
-                  style={{ fontSize: "28px", fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.02em" }}
+                  style={{
+                    fontSize: "28px",
+                    fontWeight: 800,
+                    color: "white",
+                    lineHeight: 1.2,
+                    letterSpacing: "-0.02em",
+                  }}
                 >
-                  Your Trusted Partner for<br />Korean B2B Wholesale
+                  {lang === "ko"
+                    ? <>믿을 수 있는<br />한국 대표 브랜드 공급</>
+                    : <>Your Trusted Source<br />for Korea's Leading Brands</>}
                 </h1>
 
-                {/* Desktop subtext */}
+                {/* ✅ 데스크톱 서브텍스트 */}
                 <p
                   className="hidden md:block"
-                  style={{ fontSize: "18px", color: "rgba(255,255,255,0.75)", lineHeight: 1.7, maxWidth: 560, margin: "20px auto 0" }}
+                  style={{
+                    fontSize: "18px",
+                    color: "rgba(255,255,255,0.75)",
+                    lineHeight: 1.7,
+                    maxWidth: 560,
+                    margin: "20px auto 0",
+                  }}
                 >
-                  {t("hero.subtext")}
+                  {lang === "ko"
+                    ? "한국 제조사 직소싱, 안정적 공급망, 경쟁력 있는 가격, 빠른 수출."
+                    : "Direct from Korean manufacturers — reliable supply, competitive pricing, fast export."}
                 </p>
 
-                {/* Mobile subtext — 1 line */}
+                {/* ✅ 모바일 서브텍스트 */}
                 <p
                   className="block md:hidden"
-                  style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", marginTop: "12px" }}
+                  style={{
+                    fontSize: "13px",
+                    color: "rgba(255,255,255,0.7)",
+                    marginTop: "12px",
+                  }}
                 >
-                  Direct sourcing · Stable supply · Fast export
+                  {lang === "ko"
+                    ? "직소싱 · 안정적 공급 · 빠른 수출"
+                    : "Direct sourcing · Stable supply · Fast export"}
                 </p>
 
-                {/* CTA */}
+                {/* ✅ CTA 버튼 */}
                 <div style={{ marginTop: "40px" }} className="mt-6 md:mt-10">
                   
-                    <a
-                    href="/contact"
+                    <a href="/contact"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -107,39 +152,60 @@ export default function HeroSection() {
                     }}
                     className="h-12 w-[220px] text-[15px] md:h-auto md:w-auto md:px-9 md:py-[14px] md:text-[15px]"
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg, #154C8A 0%, #1E5FA8 100%)";
+                      (e.currentTarget as HTMLElement).style.background =
+                        "linear-gradient(135deg, #154C8A 0%, #1E5FA8 100%)";
                       (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
-                      (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 25px rgba(30,95,168,0.45)";
+                      (e.currentTarget as HTMLElement).style.boxShadow =
+                        "0 8px 25px rgba(30,95,168,0.45)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = "linear-gradient(135deg, #1E5FA8 0%, #4A9EFF 100%)";
+                      (e.currentTarget as HTMLElement).style.background =
+                        "linear-gradient(135deg, #1E5FA8 0%, #4A9EFF 100%)";
                       (e.currentTarget as HTMLElement).style.transform = "scale(1)";
                       (e.currentTarget as HTMLElement).style.boxShadow = "none";
                     }}
                   >
-                    {/* Mobile: shorter text */}
-                    <span className="md:hidden">Get Price List</span>
-                    <span className="hidden md:inline">{t("hero.cta_primary")}</span>
+                    <span className="md:hidden">
+                      {lang === "ko" ? "도매 문의하기" : "Get Price List"}
+                    </span>
+                    <span className="hidden md:inline">
+                      {lang === "ko" ? "도매 가격 문의하기" : "Wholesale Price Inquiry"}
+                    </span>
                   </a>
                 </div>
 
-                {/* Trust badges — desktop only */}
+                {/* ✅ Trust badges — 데스크톱만 */}
                 <div
                   className="hidden md:flex"
-                  style={{ flexWrap: "wrap", justifyContent: "center", gap: "32px", marginTop: "24px" }}
+                  style={{
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    gap: "32px",
+                    marginTop: "24px",
+                  }}
                 >
-                  {[t("hero.badge_brands"), t("hero.badge_oem"), t("hero.badge_response")].map((badge) => (
-                    <span key={badge} style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", fontWeight: 500 }}>
+                  {(lang === "ko"
+                    ? ["70개 이상 한국 브랜드", "OEM 자체 리벨 가능", "24시간 내 응답"]
+                    : ["70+ Korean Brands", "OEM Available", "24hr Response"]
+                  ).map((badge) => (
+                    <span
+                      key={badge}
+                      style={{
+                        fontSize: "13px",
+                        color: "rgba(255,255,255,0.65)",
+                        fontWeight: 500,
+                      }}
+                    >
                       ✓ {badge}
                     </span>
                   ))}
                 </div>
+
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-
     </section>
   );
 }

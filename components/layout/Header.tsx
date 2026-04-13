@@ -17,6 +17,8 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const { lang, setLang, t } = useLanguage();
+
+  // ✅ 수정: closeTimer ref — 딜레이 300ms로 늘려서 gap 통과 시 닫힘 방지
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navLinks: NavLink[] = [
@@ -24,10 +26,10 @@ export default function Header() {
       label: t("nav.company"),
       href: "/company/ceo",
       children: [
-        { label: t("subnav.ceo"), href: "/company/ceo" },
-        { label: t("subnav.company"), href: "/company/about" },
+        { label: t("subnav.ceo"),       href: "/company/ceo" },
+        { label: t("subnav.company"),   href: "/company/about" },
         { label: t("subnav.locations"), href: "/company/locations" },
-        { label: t("subnav.history"), href: "/company/history" },
+        { label: t("subnav.history"),   href: "/company/history" },
       ],
     },
     {
@@ -35,20 +37,16 @@ export default function Header() {
       href: "/business/commerce",
       children: [
         { label: t("subnav.commerce"), href: "/business/commerce" },
-        { label: t("subnav.brands"), href: "/business/brands" },
+        { label: t("subnav.brands"),   href: "/business/brands" },
       ],
     },
-    { label: t("nav.news"), href: "/news" },
+    { label: t("nav.news"),    href: "/news" },
     { label: t("nav.recruit"), href: "/recruit" },
   ];
 
-  const isHome = pathname === "/";
-  const isCompany = pathname.startsWith("/company");
+  const isHome     = pathname === "/";
+  const isCompany  = pathname.startsWith("/company");
   const isBusiness = pathname.startsWith("/business");
-  const hasSubNav = isCompany || isBusiness;
-
-  const companySubNav = navLinks[0].children!;
-  const businessSubNav = navLinks[1].children!;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -59,18 +57,20 @@ export default function Header() {
   const transparent = isHome && !scrolled;
 
   const isActive = (href: string) => {
-    if (href.startsWith("/company")) return pathname.startsWith("/company");
+    if (href.startsWith("/company"))  return pathname.startsWith("/company");
     if (href.startsWith("/business")) return pathname.startsWith("/business");
     return pathname === href;
   };
 
+  // ✅ 수정: mouseEnter 시 타이머 즉시 취소 → 드롭다운 유지
   const handleMouseEnter = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setOpenDropdown(label);
   };
 
+  // ✅ 수정: mouseLeave 시 300ms 딜레이 (기존 120ms → 300ms)
   const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 300);
   };
 
   return (
@@ -82,23 +82,27 @@ export default function Header() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           transparent ? "bg-transparent" : ""
         }`}
-style={transparent ? {} : { background: "linear-gradient(135deg, #0A1F44 0%, #1E5FA8 100%)", boxShadow: "0 2px 20px rgba(10,31,68,0.3)" }}
+        style={
+          transparent
+            ? {}
+            : {
+                background: "linear-gradient(135deg, #0A1F44 0%, #1E5FA8 100%)",
+                boxShadow: "0 2px 20px rgba(10,31,68,0.3)",
+              }
+        }
       >
         <div className="mx-auto flex h-[56px] max-w-6xl items-center justify-between px-5 md:h-[72px] md:px-6">
-          {/* Logo */}
+
+          {/* 로고 */}
           <Link href="/" className="flex items-center">
             <img
               src="/images/logo.png"
               alt="SalesKR"
-              style={{
-                height: "90px",
-                width: "auto",
-                objectFit: "contain",
-              }}
+              style={{ height: "90px", width: "auto", objectFit: "contain" }}
             />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* 데스크톱 Nav */}
           <nav className="hidden items-center gap-8 lg:flex">
             {navLinks.map((link) => (
               <div
@@ -122,55 +126,84 @@ style={transparent ? {} : { background: "linear-gradient(135deg, #0A1F44 0%, #1E
                       height="12"
                       viewBox="0 0 12 12"
                       fill="none"
-                      className={`transition-transform duration-200 ${openDropdown === link.label ? "rotate-180" : ""}`}
+                      className={`transition-transform duration-200 ${
+                        openDropdown === link.label ? "rotate-180" : ""
+                      }`}
                     >
-                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M2 4l4 4 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   )}
                 </Link>
 
-                {/* Dropdown */}
+                {/* ✅ 드롭다운 */}
                 {link.children && (
                   <AnimatePresence>
                     {openDropdown === link.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute left-0 top-full z-[100] min-w-[200px] overflow-hidden rounded-b-xl pt-2"
-                        onMouseEnter={() => handleMouseEnter(link.label)}
-                        onMouseLeave={handleMouseLeave}
-                      >
+                      <>
+                        {/*
+                          ✅ 투명 브릿지: 메뉴와 드롭다운 사이 gap을 메워서
+                          마우스가 gap을 지나칠 때 닫히지 않도록 함
+                        */}
                         <div
-                          style={{
-                            background: "#0A1F44",
-                            borderRadius: "0 0 12px 12px",
-                            padding: "8px 0",
-                            boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                          }}
+                          className="absolute left-0 top-full h-3 w-full"
+                          style={{ background: "transparent" }}
+                          onMouseEnter={() => handleMouseEnter(link.label)}
+                        />
+
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
+                          className="absolute left-0 z-[100] min-w-[200px] overflow-hidden rounded-b-xl"
+                          style={{ top: "calc(100% + 12px)" }}
+                          onMouseEnter={() => handleMouseEnter(link.label)}
+                          onMouseLeave={handleMouseLeave}
                         >
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              onClick={() => setOpenDropdown(null)}
-                              className="block transition-colors duration-150"
-                              style={{ padding: "12px 24px", fontSize: "14px", fontWeight: 500, color: "rgba(255,255,255,0.8)" }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.color = "white";
-                                e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.color = "rgba(255,255,255,0.8)";
-                                e.currentTarget.style.background = "transparent";
-                              }}
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
+                          <div
+                            style={{
+                              background: "#0A1F44",
+                              borderRadius: "0 0 12px 12px",
+                              padding: "8px 0",
+                              boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+                            }}
+                          >
+                            {link.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setOpenDropdown(null)}
+                                className="block transition-colors duration-150"
+                                style={{
+                                  padding: "12px 24px",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  color: "rgba(255,255,255,0.8)",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.color = "white";
+                                  e.currentTarget.style.background =
+                                    "rgba(255,255,255,0.08)";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.color =
+                                    "rgba(255,255,255,0.8)";
+                                  e.currentTarget.style.background =
+                                    "transparent";
+                                }}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </>
                     )}
                   </AnimatePresence>
                 )}
@@ -178,15 +211,22 @@ style={transparent ? {} : { background: "linear-gradient(135deg, #0A1F44 0%, #1E
             ))}
           </nav>
 
-          {/* Right: language + CTA */}
+          {/* 오른쪽: 언어 + CTA */}
           <div className="hidden items-center gap-3 lg:flex">
             <button
               onClick={() => setLang(lang === "en" ? "ko" : "en")}
-              className={`flex cursor-pointer items-center gap-1.5 rounded-md border px-3 py-2 text-sm font-semibold transition-colors ${
-                "border-white/30 text-white/80 hover:bg-white/10"
-              }`}
+              className="flex cursor-pointer items-center gap-1.5 rounded-md border border-white/30 px-3 py-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/10"
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
@@ -202,29 +242,39 @@ style={transparent ? {} : { background: "linear-gradient(135deg, #0A1F44 0%, #1E
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(-2px)";
-                el.style.boxShadow = "0 8px 25px rgba(30,95,168,0.45), 0 4px 12px rgba(74,158,255,0.3)";
-                el.style.background = "linear-gradient(135deg, #154C8A 0%, #1E5FA8 100%)";
+                el.style.boxShadow =
+                  "0 8px 25px rgba(30,95,168,0.45), 0 4px 12px rgba(74,158,255,0.3)";
+                el.style.background =
+                  "linear-gradient(135deg, #154C8A 0%, #1E5FA8 100%)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.transform = "translateY(0)";
                 el.style.boxShadow = "none";
-                el.style.background = "linear-gradient(135deg, #1E5FA8 0%, #4A9EFF 100%)";
+                el.style.background =
+                  "linear-gradient(135deg, #1E5FA8 0%, #4A9EFF 100%)";
               }}
             >
               Contact
             </Link>
           </div>
 
-          {/* Mobile right */}
+          {/* 모바일 오른쪽 */}
           <div className="flex items-center gap-3 lg:hidden">
             <button
               onClick={() => setLang(lang === "en" ? "ko" : "en")}
-              className={`flex items-center gap-1 rounded border px-2.5 py-1.5 text-xs font-semibold transition-colors ${
-                "border-white/30 text-white/80"
-              }`}
+              className="flex items-center gap-1 rounded border border-white/30 px-2.5 py-1.5 text-xs font-semibold text-white/80"
             >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
@@ -246,11 +296,15 @@ style={transparent ? {} : { background: "linear-gradient(135deg, #0A1F44 0%, #1E
             </button>
           </div>
         </div>
-
       </motion.header>
 
       <AnimatePresence>
-        {drawerOpen && <MobileDrawer links={navLinks} onClose={() => setDrawerOpen(false)} />}
+        {drawerOpen && (
+          <MobileDrawer
+            links={navLinks}
+            onClose={() => setDrawerOpen(false)}
+          />
+        )}
       </AnimatePresence>
     </>
   );

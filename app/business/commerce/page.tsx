@@ -4,32 +4,53 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 
+// ─── 스크롤텔링 블록 데이터 ───────────────────────────────
 const blocks = [
   {
     eyebrow: "OUR SERVICES",
     title: "Business to Business",
-    description: "SalesKR collaborates with global partners to introduce Korean products to diverse markets worldwide. Through reliable supply chains and strong partnerships, we provide high-quality products at competitive prices.",
-    imageUrl: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80",
+    description:
+      "SalesKR collaborates with global partners to introduce Korean products to diverse markets worldwide. Through reliable supply chains and strong partnerships, we provide high-quality products at competitive prices. Our verified network spans 47 countries with trusted importers, distributors, and retail buyers who rely on us for consistent quality and fast fulfillment.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1400&q=85",
+    buttons: [
+      { label: "Wholesale Inquiry", variant: "primary" as const },
+      { label: "Get Price List",    variant: "outline" as const },
+    ],
   },
   {
     eyebrow: "K-FOOD EXPORT",
     title: "Korean Food & Kimchi Wholesale",
-    description: "From authentic kimchi to ready-to-eat Korean meals, SalesKR supplies premium Korean food products to global importers and distributors. Direct from Korean manufacturers with stable supply and competitive MOQ.",
-    imageUrl: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=800&q=80",
+    description:
+      "From authentic kimchi to ready-to-eat Korean meals, SalesKR supplies premium Korean food products to global importers and distributors. Sourced directly from Korean manufacturers with stable supply, competitive MOQ, and full export documentation support. Our Kimchi line is trusted by specialty grocery retailers and food service buyers across Asia, Australia, Europe, and North America.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1400&q=85",
     buttons: [
-      { label: "View K-Food Products", variant: "primary" as const },
-      { label: "Request Quotation", variant: "outline" as const },
+      { label: "Get K-Food Catalog", variant: "primary" as const },
+      { label: "Request Quotation",  variant: "outline" as const },
     ],
   },
   {
     eyebrow: "OEM & PRIVATE LABEL",
     title: "Build Your Own Korean Brand",
-    description: "We support full OEM production for cosmetics and food products. From concept to export, we handle everything including formulation, packaging design, certification, and logistics.",
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    steps: ["Inquiry & Consultation", "Sample Development", "Production", "Export & Delivery"],
+    description:
+      "We support full OEM production for cosmetics and food products. From concept to export, we handle everything including formulation development, packaging design, regulatory certification, and international logistics. Build your own brand backed by Korea's world-class manufacturing expertise — whether you are launching a new skincare line or developing a private-label Kimchi product for your market.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=85",
+    steps: [
+      "Inquiry & Consultation",
+      "Sample Development",
+      "Production",
+      "Export & Delivery",
+    ],
+    buttons: [
+      { label: "Start OEM Project", variant: "primary" as const },
+      { label: "OEM Inquiry",       variant: "outline" as const },
+    ],
   },
 ];
 
+// ─── 브랜드 데이터 ─────────────────────────────────────────
 type Tier = "p" | "c" | "s";
 interface Brand { n: string; t: Tier; dot: string; url: string; }
 
@@ -64,6 +85,7 @@ const tierStyle: Record<Tier, string> = {
   s: "bg-[#FFF6EE] text-[#BA7517]",
 };
 
+// ─── 트렌딩 데이터 ─────────────────────────────────────────
 interface TrendBrand { n: string; b: "hot" | "new" | ""; s: string; url: string; }
 const trends: TrendBrand[] = [
   { n: "COSRX",            b: "hot", s: "↑ 2.3M", url: "https://cosrx.com" },
@@ -87,6 +109,7 @@ const trends: TrendBrand[] = [
 ];
 const marqueeRows = [trends.slice(0, 6), trends.slice(6, 12), trends.slice(12)];
 
+// ─── 지도 데이터 ──────────────────────────────────────────
 type RegionKey = "AP" | "EU" | "AM" | "ME";
 const dotData: { x: number; y: number; c: string; r: RegionKey }[] = [
   { x: 665, y: 97,  c: "Japan",          r: "AP" },
@@ -131,11 +154,13 @@ const regions: { code: RegionKey; name: string; count: string; color: string }[]
 
 const INITIAL_SHOW = 6;
 
+// ─── BrandsSection ────────────────────────────────────────
 function BrandsSection() {
   const [activeFilter, setActiveFilter] = useState<"all" | Tier>("all");
   const [expanded, setExpanded] = useState(false);
 
-  const filtered = activeFilter === "all" ? brands : brands.filter((b) => b.t === activeFilter);
+  const filtered =
+    activeFilter === "all" ? brands : brands.filter((b) => b.t === activeFilter);
   const visibleBrands = expanded ? filtered : filtered.slice(0, INITIAL_SHOW);
 
   return (
@@ -224,76 +249,62 @@ function BrandsSection() {
   );
 }
 
+// ─── TrendingSection ──────────────────────────────────────
+// ✅ 배경 #EEF4FF (밝은 파란빛) — 텍스트 어둡게 반전
 function TrendingSection() {
-  const s2Ref = useRef<HTMLDivElement>(null);
-  const spotRef = useRef<HTMLDivElement>(null);
-
-  const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!spotRef.current || !s2Ref.current) return;
-    const rect = s2Ref.current.getBoundingClientRect();
-    spotRef.current.style.left = `${e.clientX - rect.left}px`;
-    spotRef.current.style.top = `${e.clientY - rect.top}px`;
-    spotRef.current.style.opacity = "1";
-  }, []);
-
-  const onMouseLeave = useCallback(() => {
-    if (spotRef.current) spotRef.current.style.opacity = "0";
-  }, []);
-
   return (
     <section
-      ref={s2Ref}
-      className="relative overflow-hidden px-5 py-16 md:px-14 md:py-20"
-      style={{ background: "linear-gradient(135deg,#0A1F44 0%,#1E5FA8 100%)", cursor: "crosshair" }}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
+      className="px-5 py-16 md:px-14 md:py-20"
+      style={{ background: "#EEF4FF" }}
     >
-      <div
-        ref={spotRef}
-        className="pointer-events-none absolute h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle,rgba(74,158,255,.14) 0%,transparent 68%)", opacity: 0, transition: "opacity 0.3s" }}
-      />
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-7 flex items-center gap-2">
           <span className="h-2 w-2 flex-shrink-0 animate-pulse rounded-full bg-red-500" />
-          <span className="text-[11px] font-bold tracking-[.12em] text-white/40">
+          <span className="text-[11px] font-bold tracking-[.12em] text-[#6B6B60]">
             LIVE · GLOBAL SEARCH TREND UPDATED APR 2025
           </span>
         </div>
-        <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#4A9EFF]">
+        <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#1E5FA8]">
           Trending K-Beauty Brands 2025
         </p>
-        <h2 className="mt-2 text-[26px] font-extrabold text-white md:text-[36px]">
+        <h2 className="mt-2 text-[26px] font-extrabold text-[#0A1F44] md:text-[36px]">
           Fast-Growing Brands
         </h2>
-        <p className="mt-1 text-sm text-white/60">
+        <p className="mt-1 text-sm text-[#6B6B60]">
           Ingredient-focused brands leading global demand in 2025
         </p>
 
+        {/* 데스크톱 그리드 */}
         <div className="mt-7 hidden grid-cols-3 gap-0.5 md:grid">
           {trends.map((t) => (
-            
-              <a key={t.n}
+            <a
+              key={t.n}
               href={t.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex cursor-pointer items-center justify-between rounded-lg border border-transparent px-4 py-3 transition-all duration-200 hover:translate-x-1 hover:border-[rgba(74,158,255,.25)] hover:bg-[rgba(74,158,255,.12)]"
+              className="group flex cursor-pointer items-center justify-between rounded-lg border border-transparent px-4 py-3 transition-all duration-200 hover:translate-x-1 hover:border-[#C8D8F0] hover:bg-white"
             >
               <div className="flex items-center gap-2">
                 {t.b && (
-                  <span className={`rounded-lg px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider ${t.b === "hot" ? "bg-red-500/20 text-red-400" : "bg-[#4A9EFF]/20 text-[#6BB8FF]"}`}>
+                  <span
+                    className={`rounded-lg px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider ${
+                      t.b === "hot"
+                        ? "bg-red-100 text-red-600"
+                        : "bg-blue-100 text-blue-600"
+                    }`}
+                  >
                     {t.b.toUpperCase()}
                   </span>
                 )}
-                <span className="text-[13px] font-semibold text-white/80 transition-colors duration-200 group-hover:text-[#4A9EFF]">
+                <span className="text-[13px] font-semibold text-[#0A1F44] transition-colors duration-200 group-hover:text-[#1E5FA8]">
                   {t.n}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[11px] text-white/30 transition-colors duration-200 group-hover:text-white/60">
+                <span className="text-[11px] text-[#6B6B60] transition-colors duration-200 group-hover:text-[#1E5FA8]">
                   {t.s}
                 </span>
-                <span className="translate-x-[-6px] text-xs text-[#4A9EFF] opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100">
+                <span className="translate-x-[-6px] text-xs text-[#1E5FA8] opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100">
                   ↗
                 </span>
               </div>
@@ -301,20 +312,30 @@ function TrendingSection() {
           ))}
         </div>
 
+        {/* 모바일 마퀴 */}
         <div className="mt-7 flex flex-col gap-4 overflow-hidden md:hidden">
           {marqueeRows.map((row, ri) => (
             <div key={ri} className="flex overflow-hidden">
               <div
                 className="flex gap-3"
-                style={{ animation: `marquee-${ri % 2 === 0 ? "left" : "right"} ${28 + ri * 4}s linear infinite`, whiteSpace: "nowrap" }}
+                style={{
+                  animation: `marquee-${ri % 2 === 0 ? "left" : "right"} ${28 + ri * 4}s linear infinite`,
+                  whiteSpace: "nowrap",
+                }}
               >
                 {[...row, ...row].map((t, i) => (
                   <span
                     key={i}
-                    className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full border border-[rgba(74,158,255,.25)] px-3.5 py-2 text-[12px] font-bold text-white/80"
+                    className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full border border-[#C8D8F0] bg-white px-3.5 py-2 text-[12px] font-bold text-[#0A1F44]"
                   >
                     {t.b && (
-                      <span className={`rounded-md px-1 py-0.5 text-[8px] font-extrabold uppercase ${t.b === "hot" ? "bg-red-500/20 text-red-400" : "bg-[#4A9EFF]/20 text-[#6BB8FF]"}`}>
+                      <span
+                        className={`rounded-md px-1 py-0.5 text-[8px] font-extrabold uppercase ${
+                          t.b === "hot"
+                            ? "bg-red-100 text-red-600"
+                            : "bg-blue-100 text-blue-600"
+                        }`}
+                      >
                         {t.b}
                       </span>
                     )}
@@ -326,6 +347,7 @@ function TrendingSection() {
           ))}
         </div>
       </div>
+
       <style>{`
         @keyframes marquee-left  { from{transform:translateX(0)}    to{transform:translateX(-50%)} }
         @keyframes marquee-right { from{transform:translateX(-50%)} to{transform:translateX(0)}    }
@@ -334,6 +356,7 @@ function TrendingSection() {
   );
 }
 
+// ─── ExportMapSection ─────────────────────────────────────
 function ExportMapSection() {
   const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
   const [activeRegion, setActiveRegion] = useState<RegionKey | null>(null);
@@ -342,20 +365,40 @@ function ExportMapSection() {
   return (
     <section className="bg-[#F7F6F2] px-5 py-16 md:px-14 md:py-20">
       <div className="mx-auto max-w-6xl">
-        <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#1E5FA8]">Global Reach</p>
-        <h2 className="mt-2 text-[26px] font-extrabold text-[#0A1F44] md:text-[36px]">Where We Export To</h2>
-        <p className="mt-1 text-sm text-[#6B6B60]">Direct B2B supply to verified importers & distributors worldwide</p>
+        <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#1E5FA8]">
+          Global Reach
+        </p>
+        <h2 className="mt-2 text-[26px] font-extrabold text-[#0A1F44] md:text-[36px]">
+          Where We Export To
+        </h2>
+        <p className="mt-1 text-sm text-[#6B6B60]">
+          Direct B2B supply to verified importers & distributors worldwide
+        </p>
 
         <div className="mt-7 grid grid-cols-3 gap-3 md:gap-4">
-          {[{ num: "47", label: "Countries" }, { num: "5", label: "Continents" }, { num: "90+", label: "Brand Partners" }].map((s) => (
-            <div key={s.label} className="rounded-xl border border-[#E0DED8] bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[#C8D8F0] md:p-5">
-              <div className="text-[28px] font-extrabold leading-none text-[#0A1F44] md:text-[32px]">{s.num}</div>
-              <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-[#6B6B60]">{s.label}</div>
+          {[
+            { num: "47",  label: "Countries"     },
+            { num: "5",   label: "Continents"    },
+            { num: "90+", label: "Brand Partners" },
+          ].map((s) => (
+            <div
+              key={s.label}
+              className="rounded-xl border border-[#E0DED8] bg-white p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[#C8D8F0] md:p-5"
+            >
+              <div className="text-[28px] font-extrabold leading-none text-[#0A1F44] md:text-[32px]">
+                {s.num}
+              </div>
+              <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-[#6B6B60]">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
 
-        <div ref={mapWrapRef} className="relative mt-7 overflow-hidden rounded-2xl border border-[#E0DED8] bg-white">
+        <div
+          ref={mapWrapRef}
+          className="relative mt-7 overflow-hidden rounded-2xl border border-[#E0DED8] bg-white"
+        >
           {tooltip && (
             <div
               className="pointer-events-none absolute z-10 rounded-lg bg-[#0A1F44] px-3 py-1.5 text-[11px] font-semibold text-white"
@@ -390,7 +433,11 @@ function ExportMapSection() {
               return (
                 <g
                   key={d.c}
-                  style={{ cursor: "pointer", opacity: isActive ? 1 : 0.15, transition: "opacity 0.35s ease" }}
+                  style={{
+                    cursor: "pointer",
+                    opacity: isActive ? 1 : 0.15,
+                    transition: "opacity 0.35s ease",
+                  }}
                   onMouseEnter={(e) => {
                     if (!mapWrapRef.current) return;
                     const r = mapWrapRef.current.getBoundingClientRect();
@@ -413,7 +460,9 @@ function ExportMapSection() {
             <circle cx="648" cy="104" r="7" fill="#1E5FA8" />
             <circle cx="648" cy="104" r="3" fill="#fff" />
             <rect x="618" y="84" width="60" height="16" rx="4" fill="#0A1F44" />
-            <text x="648" y="96" textAnchor="middle" fill="#fff" fontSize="9" fontWeight="700" fontFamily="system-ui">🇰🇷 KOREA</text>
+            <text x="648" y="96" textAnchor="middle" fill="#fff" fontSize="9" fontWeight="700" fontFamily="system-ui">
+              🇰🇷 KOREA
+            </text>
           </svg>
         </div>
 
@@ -430,7 +479,11 @@ function ExportMapSection() {
             >
               <div
                 className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-extrabold text-white"
-                style={{ background: r.color, transform: activeRegion === r.code ? "scale(1.15)" : "scale(1)", transition: "transform 0.2s" }}
+                style={{
+                  background: r.color,
+                  transform: activeRegion === r.code ? "scale(1.15)" : "scale(1)",
+                  transition: "transform 0.2s",
+                }}
               >
                 {r.code}
               </div>
@@ -444,7 +497,11 @@ function ExportMapSection() {
 
         {activeRegion && (
           <p className="mt-3 text-center text-[11px] text-[#6B6B60]">
-            Showing <strong className="text-[#0A1F44]">{regions.find((r) => r.code === activeRegion)?.name}</strong> — click again to reset
+            Showing{" "}
+            <strong className="text-[#0A1F44]">
+              {regions.find((r) => r.code === activeRegion)?.name}
+            </strong>{" "}
+            — click again to reset
           </p>
         )}
       </div>
@@ -452,6 +509,7 @@ function ExportMapSection() {
   );
 }
 
+// ─── CommercePage ─────────────────────────────────────────
 export default function CommercePage() {
   const [activeBlock, setActiveBlock] = useState(0);
   const sectionRefs = [
@@ -464,7 +522,7 @@ export default function CommercePage() {
     const observers = sectionRefs.map((ref, index) => {
       const observer = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveBlock(index); },
-        { threshold: 0.5, rootMargin: "-20% 0px -20% 0px" }
+        { threshold: 0.4, rootMargin: "-15% 0px -15% 0px" }
       );
       if (ref.current) observer.observe(ref.current);
       return observer;
@@ -477,37 +535,68 @@ export default function CommercePage() {
 
   return (
     <>
+      {/* ─── 히어로 ─── */}
       <section className="relative h-[380px] overflow-hidden md:h-[560px]">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80" alt="Business" className="h-full w-full object-cover object-center" loading="eager" />
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
+          alt="Business"
+          className="h-full w-full object-cover object-center"
+          loading="eager"
+        />
         <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="px-4 text-center text-3xl font-extrabold tracking-tight text-white md:text-5xl">Business</h1>
+          <h1 className="px-4 text-center text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+            Business
+          </h1>
         </div>
       </section>
 
+      {/* ════════════════════════════════════════════════
+          PC 스크롤텔링 (lg 이상)
+          ✅ 이미지: 오른쪽 브라우저 끝까지 붙고
+             왼쪽만 반원(역 D자)으로 잘림
+      ════════════════════════════════════════════════ */}
       <section className="relative hidden lg:block">
         <div className="flex">
-          <div className="sticky top-[120px] flex h-screen w-1/2 items-center self-start">
-            <div className="px-12 xl:px-20">
+
+          {/* 왼쪽 — sticky 텍스트 패널 */}
+          <div className="sticky top-[72px] flex h-[calc(100vh-72px)] w-1/2 items-center self-start overflow-hidden">
+            <div className="w-full px-12 xl:px-20">
               <AnimatePresence mode="wait">
-                <motion.div key={activeBlock} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4, ease: "easeOut" }}>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue">{current.eyebrow}</p>
-                  <h2 className="mt-4 text-5xl font-black leading-tight text-navy xl:text-6xl">{current.title}</h2>
-                  <p className="mt-6 max-w-lg text-base leading-relaxed text-gray-600">{current.description}</p>
-                  {current.buttons && (
-                    <div className="mt-8 flex gap-4">
-                      {current.buttons.map((btn) => (
-                        <Button key={btn.label} href="/contact" variant={btn.variant}>{btn.label}</Button>
-                      ))}
-                    </div>
-                  )}
+                <motion.div
+                  key={activeBlock}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -24 }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue">
+                    {current.eyebrow}
+                  </p>
+                  <h2 className="mt-4 text-4xl font-black leading-tight text-navy xl:text-5xl">
+                    {current.title}
+                  </h2>
+                  <p className="mt-5 max-w-md text-base leading-relaxed text-gray-600">
+                    {current.description}
+                  </p>
                   {current.steps && (
                     <div className="mt-8 flex flex-col gap-3">
                       {current.steps.map((step, i) => (
                         <div key={step} className="flex items-center gap-3">
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">{i + 1}</span>
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">
+                            {i + 1}
+                          </span>
                           <span className="text-sm font-semibold text-navy">{step}</span>
                         </div>
+                      ))}
+                    </div>
+                  )}
+                  {current.buttons && (
+                    <div className="mt-8 flex flex-wrap gap-4">
+                      {current.buttons.map((btn) => (
+                        <Button key={btn.label} href="/contact" variant={btn.variant}>
+                          {btn.label}
+                        </Button>
                       ))}
                     </div>
                   )}
@@ -515,13 +604,57 @@ export default function CommercePage() {
               </AnimatePresence>
             </div>
           </div>
+
+          {/* 오른쪽 — 스크롤 이미지 패널
+              ✅ overflow-hidden 제거 → 이미지가 오른쪽 끝까지 넘침
+              ✅ 각 섹션 height: 100vh
+          */}
           <div className="w-1/2">
             {blocks.map((block, i) => (
-              <div key={i} ref={sectionRefs[i]} className="flex h-screen items-center justify-center px-12">
+              <div
+                key={i}
+                ref={sectionRefs[i]}
+                className="relative flex h-screen items-center"
+                style={{ overflow: "visible" }}
+              >
                 <AnimatePresence mode="wait">
                   {activeBlock === i && (
-                    <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.5 }} className="h-[480px] w-[480px] overflow-hidden rounded-full">
-                      <img src={block.imageUrl} alt={block.title} className="h-full w-full object-cover" loading="lazy" />
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.97 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      /*
+                        ✅ 핵심:
+                        - position absolute, right 0 → 오른쪽 끝에 딱 붙음
+                        - left -60px → 왼쪽으로 약간 더 넓게
+                        - border-radius: 50% 0 0 50% → 왼쪽만 반원 (역 D자)
+                        - overflow hidden → 반원 바깥 잘림
+                      */
+                      className="absolute overflow-hidden"
+                      style={{
+                        top: "10%",
+                        bottom: "10%",
+                        right: 0,
+                        left: "-60px",
+                        borderRadius: "50% 0 0 50%",
+                      }}
+                    >
+                      <img
+                        src={block.imageUrl}
+                        alt={block.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                      {/* 왼쪽 경계 어두운 그라디언트 — 텍스트와 자연스러운 분리 */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(to right, rgba(10,31,68,0.25) 0%, transparent 30%)",
+                        }}
+                      />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -531,30 +664,60 @@ export default function CommercePage() {
         </div>
       </section>
 
-      <section className="pt-8 lg:hidden">
+      {/* ════════════════════════════════════════════════
+          모바일 (lg 미만)
+          ✅ 풀와이드 이미지 + 하단 텍스트 + CTA
+      ════════════════════════════════════════════════ */}
+      <section className="pt-3 lg:hidden">
         {blocks.map((block, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <div className="h-64 overflow-hidden">
-              <img src={block.imageUrl} alt={block.title} className="h-full w-full object-cover" loading="lazy" />
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            {/* 모바일 이미지: 풀와이드 16:9 */}
+            <div className="w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <img
+                src={block.imageUrl}
+                alt={block.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <div className="px-6 py-12">
-              <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue">{block.eyebrow}</p>
-              <h2 className="mt-3 text-3xl font-extrabold text-navy">{block.title}</h2>
-              <p className="mt-4 text-base leading-relaxed text-gray-600">{block.description}</p>
-              {block.buttons && (
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  {block.buttons.map((btn) => (
-                    <Button key={btn.label} href="/contact" variant={btn.variant}>{btn.label}</Button>
-                  ))}
-                </div>
-              )}
+
+            <div
+              className="px-5 py-10"
+              style={{ background: i % 2 === 0 ? "white" : "#F7F6F2" }}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue">
+                {block.eyebrow}
+              </p>
+              <h2 className="mt-3 text-[26px] font-extrabold text-navy">
+                {block.title}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-gray-600">
+                {block.description}
+              </p>
               {block.steps && (
                 <div className="mt-6 flex flex-col gap-3">
                   {block.steps.map((step, j) => (
                     <div key={step} className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">{j + 1}</span>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">
+                        {j + 1}
+                      </span>
                       <span className="text-sm font-semibold text-navy">{step}</span>
                     </div>
+                  ))}
+                </div>
+              )}
+              {block.buttons && (
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  {block.buttons.map((btn) => (
+                    <Button key={btn.label} href="/contact" variant={btn.variant}>
+                      {btn.label}
+                    </Button>
                   ))}
                 </div>
               )}
