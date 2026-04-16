@@ -279,7 +279,6 @@ export default function Footer() {
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
 
-  // ✅ 사업자등록번호 — 영문 기본 / 한글 전환 시 한글 표기
   const bizRegNumber =
     lang === "ko"
       ? "사업자등록번호: 876-87-01523"
@@ -301,6 +300,7 @@ export default function Footer() {
             className="hidden md:grid md:gap-12"
             style={{ gridTemplateColumns: "1fr 2fr" }}
           >
+            {/* 왼쪽: 태그라인 */}
             <div className="flex flex-col justify-between">
               <div>
                 <h3
@@ -314,45 +314,10 @@ export default function Footer() {
                 >
                   {t("footer.tagline")}
                 </h3>
-
-                {/* ✅ Company Profile 버튼만 유지 — Family Site 드롭다운 삭제 */}
-                <div className="mt-6">
-                  
-                    <a
-                    href="/company-profile.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      width: 210,
-                      height: 40,
-                      borderRadius: 8,
-                      fontSize: 13,
-                      fontWeight: 600,
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: "#1E5FA8",
-                      color: "white",
-                      textDecoration: "none",
-                      transition: "background 0.2s",
-                      whiteSpace: "nowrap",
-                      padding: "0 16px",
-                    }}
-                    onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLElement).style.background =
-                        "#154C8A")
-                    }
-                    onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLElement).style.background =
-                        "#1E5FA8")
-                    }
-                  >
-                    Company Profile ↓
-                  </a>
-                </div>
               </div>
             </div>
 
+            {/* 오른쪽: HQ + Contact */}
             <div>
               <div className="grid grid-cols-2 gap-8">
                 <div>
@@ -390,7 +355,6 @@ export default function Footer() {
                     <br />
                     FAX: +82-0504-065-2684
                   </p>
-                  {/* ✅ 사업자등록번호 언어 분기 */}
                   <p
                     className="mt-2 text-[12px]"
                     style={{ color: "rgba(255,255,255,0.5)" }}
@@ -410,32 +374,6 @@ export default function Footer() {
             >
               {t("footer.tagline")}
             </h3>
-
-            {/* ✅ Company Profile 버튼만 — Family Site 삭제 */}
-            <div className="mt-4">
-              
-                <a 
-                href="/company-profile.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "100%",
-                  height: 40,
-                  borderRadius: 8,
-                  fontSize: 13,
-                  fontWeight: 600,
-                  background: "#1E5FA8",
-                  color: "white",
-                  textDecoration: "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Company Profile ↓
-              </a>
-            </div>
 
             <div
               className="mt-5 grid grid-cols-2 gap-3"
@@ -497,7 +435,6 @@ export default function Footer() {
                   <br />
                   FAX: +82-0504-065-2684
                 </p>
-                {/* ✅ 사업자등록번호 모바일 언어 분기 */}
                 <p
                   style={{
                     fontSize: "10px",
@@ -524,7 +461,6 @@ export default function Footer() {
                 {t("footer.copyright")}
               </p>
 
-              {/* ✅ Instagram 아이콘 완전 삭제 */}
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setShowPrivacy(true)}
@@ -544,7 +480,6 @@ export default function Footer() {
                   {lang === "ko" ? "이용약관" : "Terms of Service"}
                 </button>
 
-                {/* ✅ 로고 크기 키움: 모바일 h-8 / PC h-11 */}
                 <Link href="/">
                   <img
                     src="/images/logo.png"

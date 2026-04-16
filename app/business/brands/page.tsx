@@ -21,14 +21,14 @@ export default function BrandsPage() {
       <section className="relative h-[380px] overflow-hidden md:h-[560px]">
         <img
           src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1920&q=80"
-          alt="Own Brands"
+          alt="OEM&ODM"
           className="h-full w-full object-cover object-center"
           loading="eager"
         />
         <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="px-4 text-center text-3xl font-extrabold tracking-tight text-white md:text-5xl">
-            Own Brands
+            OEM&ODM
           </h1>
         </div>
       </section>
@@ -43,9 +43,9 @@ export default function BrandsPage() {
             viewport={{ once: true }}
             className="mb-12 text-center md:mb-16"
           >
-            <p className="eyebrow">OWN BRANDS</p>
+            <p className="eyebrow">OEM&ODM</p>
             <h2 className="mt-4 text-[28px] font-extrabold text-navy md:text-[36px]">
-              SalesKR Own Brand
+              SalesKR OEM&ODM
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] text-brand-muted">
               Curated and developed in-house, our own brand products represent the pinnacle of Korean quality and innovation.
@@ -55,7 +55,7 @@ export default function BrandsPage() {
                 Sales<span style={{ color: "#1E5FA8" }}>KR</span>
               </p>
               <p style={{ fontSize: "12px", color: "#6B6B60", fontWeight: 400, marginTop: "4px" }}>
-                Own Brand Collection
+                OEM&ODM Collection
               </p>
             </div>
           </motion.div>
@@ -144,7 +144,7 @@ export default function BrandsPage() {
         </motion.div>
       </section>
 
-      {/* ─── ✅ Online Mall 삭제 → Wholesale CTA 배너로 교체 ─── */}
+      {/* ─── Wholesale CTA 배너 ─── */}
       <section
         className="py-16 md:py-20"
         style={{

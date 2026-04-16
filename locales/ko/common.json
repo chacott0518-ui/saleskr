@@ -1,118 +1,118 @@
 {
-  "nav": {
-    "home": "홈",
-    "company": "회사소개",
-    "business": "비즈니스",
-    "news": "뉴스",
-    "contact": "문의하기",
-    "recruit": "채용"
-  },
-  "subnav": {
-    "ceo": "CEO 메시지",
-    "company": "회사소개",
-    "locations": "위치안내",
-    "history": "연혁",
-    "commerce": "커머스 모델",
-    "brands": "자체 브랜드"
-  },
-  "hero": {
-    "eyebrow": "한국 B2B 수출 전문",
-    "headline": "한국 식품·뷰티 해외 공급 신뢰할 수 있는 파트너",
-    "subtext": "한국 제조사 직소싱. 안정적 공급망, 경쟁력 있는 가격, 빠른 수출.",
-    "cta_primary": "도매 가격 문의하기",
-    "cta_secondary": "견적 요청하기",
-    "badge_brands": "70개 이상 한국 브랜드",
-    "badge_oem": "OEM · 자체 라벨 가능",
-    "badge_response": "24시간 내 응답"
-  },
-  "about": {
-    "eyebrow": "SALESKR 소개",
-    "headline_1": "혁신적인 한국 제품을",
-    "headline_2": "세계와 연결합니다.",
-    "description": "SalesKR은 글로벌 B2B 유통 파트너로서 한국 화장품과 식품을 전 세계에 공급합니다. 70개 이상의 브랜드 네트워크를 보유한 직소싱 전문 기업으로 경쟁력 있는 가격과 안정적인 공급망을 제공합니다.",
-    "stat_brands": "한국 브랜드",
-    "stat_countries": "수출 국가",
-    "stat_network": "파트너 네트워크"
-  },
-  "whatwedo": {
-    "eyebrow": "주요 사업",
-    "headline_1": "성공을 이끄는",
-    "headline_2": "우리의 비즈니스",
-    "subtext": "SalesKR은 끊임없이 진화하며 글로벌 파트너의 변화하는 요구에 부응합니다.",
-    "card_b2b": "기업 간 거래 (B2B)",
-    "card_food": "K-푸드 · 김치",
-    "card_oem": "OEM · 자체 라벨"
-  },
-  "export": {
-    "headline_1": "수출",
-    "headline_2": "다양한 국가로",
-    "stat1_label": "글로벌 수출 국가",
-    "stat1_sub": "전 세계 다양한 국가에 수출 중입니다",
-    "stat2_label": "전 세계 물류 파트너",
-    "stat2_sub": "어디든 자신 있게 물류를 처리합니다",
-    "stat3_label": "파트너 브랜드",
-    "stat3_sub": "300개 이상의 브랜드와 연결",
-    "mobile_title": "수출 국가"
-  },
-  "awards": {
-    "eyebrow": "수상 내역",
-    "headline_1": "수상 및",
-    "headline_2": "인증 내역"
-  },
-  "updates": {
-    "title": "SalesKR 최신 소식",
-    "about_card": "SalesKR 소개",
-    "about_text": "한국 B2B 수출의 리더, SalesKR과 함께하세요",
-    "locations_card": "SalesKR 위치",
-    "locations_text": "본사 및 지사 위치 안내",
-    "locations_sub": "한국 제품, 전 세계로 확장",
-    "clock_title": "주요 지역 현지 시간"
-  },
-  "contact_banner": {
-    "title": "문의하기",
-    "subtext": "언제든지 편하게 문의해 주세요. 빠르게 답변 드리겠습니다.",
-    "button": "문의하기"
-  },
-  "footer": {
-    "tagline": "최고의 한국 제품을 전 세계로",
-    "download": "회사 소개서 다운로드",
-    "hq_title": "한국 본사",
-    "branch_poland": "폴란드 지사",
-    "branch_russia": "러시아 지사",
-    "branch_vietnam": "베트남 지사",
-    "copyright": "Copyright © SalesKR 모든 권리 보유"
-  },
-  "contact_page": {
-    "title": "문의하기",
-    "subtitle": "담당자에게 연락하기",
-    "step1": "문의 유형 선택",
-    "step1_desc": "문의에 해당하는 유형을 선택해 주세요.",
-    "step2": "문의 내용을 입력해 주세요",
-    "type_general": "일반 문의",
-    "type_beauty": "K-뷰티 제품",
-    "type_food": "K-푸드 · 김치",
-    "type_oem": "OEM · 자체 라벨",
-    "type_partner": "파트너십",
-    "type_other": "기타",
-    "form_company": "회사명",
-    "form_person": "담당자명",
-    "form_phone": "전화번호",
-    "form_email": "이메일",
-    "form_country": "국가",
-    "form_country_placeholder": "국가를 선택해 주세요",
-    "form_products": "관심 제품",
-    "form_products_placeholder": "예: K-뷰티 스킨케어, 김치, OEM 화장품",
-    "form_details": "문의 내용",
-    "form_details_placeholder": "요구사항을 알려주세요...",
-    "form_whatsapp": "WhatsApp / 위챗 ID",
-    "form_whatsapp_placeholder": "선택사항 — 빠른 소통을 위해",
-    "form_consent": "개인정보 수집 및 이용에 동의합니다.",
-    "form_submit": "문의 보내기",
-    "success": "24시간 내에 연락드리겠습니다!"
-  },
-  "recruit_page": {
-    "title": "채용",
-    "intro": "SalesKR은 혁신과 발전을 위해 함께할 인재를 찾습니다.",
-    "apply": "지원하기"
-  }
+    "nav":  {
+                "home":  "홈",
+                "company":  "회사소개",
+                "business":  "비즈니스",
+                "news":  "뉴스",
+                "contact":  "문의하기",
+                "recruit":  "채용"
+            },
+    "subnav":  {
+                   "ceo":  "CEO 메시지",
+                   "company":  "회사소개",
+                   "locations":  "위치안내",
+                   "history":  "연혁",
+                   "commerce":  "커머스 모델",
+                   "brands":  "OEM\u0026ODM"
+               },
+    "hero":  {
+                 "eyebrow":  "한국 B2B 수출 전문",
+                 "headline":  "한국 식품·뷰티 해외 공급 신뢰할 수 있는 파트너",
+                 "subtext":  "한국 제조사 직소싱. 안정적 공급망, 경쟁력 있는 가격, 빠른 수출.",
+                 "cta_primary":  "도매 가격 문의하기",
+                 "cta_secondary":  "견적 요청하기",
+                 "badge_brands":  "70개 이상 한국 브랜드",
+                 "badge_oem":  "OEM · 자체 라벨 가능",
+                 "badge_response":  "24시간 내 응답"
+             },
+    "about":  {
+                  "eyebrow":  "SALESKR 소개",
+                  "headline_1":  "혁신적인 한국 제품을",
+                  "headline_2":  "세계와 연결합니다.",
+                  "description":  "SalesKR은 글로벌 B2B 유통 파트너로서 한국 화장품과 식품을 전 세계에 공급합니다. 70개 이상의 브랜드 네트워크를 보유한 직소싱 전문 기업으로 경쟁력 있는 가격과 안정적인 공급망을 제공합니다.",
+                  "stat_brands":  "한국 브랜드",
+                  "stat_countries":  "수출 국가",
+                  "stat_network":  "파트너 네트워크"
+              },
+    "whatwedo":  {
+                     "eyebrow":  "주요 사업",
+                     "headline_1":  "성공을 이끄는",
+                     "headline_2":  "우리의 비즈니스",
+                     "subtext":  "SalesKR은 끊임없이 진화하며 글로벌 파트너의 변화하는 요구에 부응합니다.",
+                     "card_b2b":  "기업 간 거래 (B2B)",
+                     "card_food":  "K-푸드 · 김치",
+                     "card_oem":  "OEM · 자체 라벨"
+                 },
+    "export":  {
+                   "headline_1":  "수출",
+                   "headline_2":  "다양한 국가로",
+                   "stat1_label":  "글로벌 수출 국가",
+                   "stat1_sub":  "전 세계 다양한 국가에 수출 중입니다",
+                   "stat2_label":  "전 세계 물류 파트너",
+                   "stat2_sub":  "어디든 자신 있게 물류를 처리합니다",
+                   "stat3_label":  "파트너 브랜드",
+                   "stat3_sub":  "300개 이상의 브랜드와 연결",
+                   "mobile_title":  "수출 국가"
+               },
+    "awards":  {
+                   "eyebrow":  "수상 내역",
+                   "headline_1":  "수상 및",
+                   "headline_2":  "인증 내역"
+               },
+    "updates":  {
+                    "title":  "SalesKR 최신 소식",
+                    "about_card":  "SalesKR 소개",
+                    "about_text":  "한국 B2B 수출의 리더, SalesKR과 함께하세요",
+                    "locations_card":  "SalesKR 위치",
+                    "locations_text":  "본사 및 지사 위치 안내",
+                    "locations_sub":  "한국 제품, 전 세계로 확장",
+                    "clock_title":  "주요 지역 현지 시간"
+                },
+    "contact_banner":  {
+                           "title":  "문의하기",
+                           "subtext":  "언제든지 편하게 문의해 주세요. 빠르게 답변 드리겠습니다.",
+                           "button":  "문의하기"
+                       },
+    "footer":  {
+                   "tagline":  "최고의 한국 제품을 전 세계로",
+                   "download":  "회사 소개서 다운로드",
+                   "hq_title":  "한국 본사",
+                   "branch_poland":  "폴란드 지사",
+                   "branch_russia":  "러시아 지사",
+                   "branch_vietnam":  "베트남 지사",
+                   "copyright":  "Copyright © SalesKR 모든 권리 보유"
+               },
+    "contact_page":  {
+                         "title":  "문의하기",
+                         "subtitle":  "담당자에게 연락하기",
+                         "step1":  "문의 유형 선택",
+                         "step1_desc":  "문의에 해당하는 유형을 선택해 주세요.",
+                         "step2":  "문의 내용을 입력해 주세요",
+                         "type_general":  "일반 문의",
+                         "type_beauty":  "K-뷰티 제품",
+                         "type_food":  "K-푸드 · 김치",
+                         "type_oem":  "OEM · 자체 라벨",
+                         "type_partner":  "파트너십",
+                         "type_other":  "기타",
+                         "form_company":  "회사명",
+                         "form_person":  "담당자명",
+                         "form_phone":  "전화번호",
+                         "form_email":  "이메일",
+                         "form_country":  "국가",
+                         "form_country_placeholder":  "국가를 선택해 주세요",
+                         "form_products":  "관심 제품",
+                         "form_products_placeholder":  "예: K-뷰티 스킨케어, 김치, OEM 화장품",
+                         "form_details":  "문의 내용",
+                         "form_details_placeholder":  "요구사항을 알려주세요...",
+                         "form_whatsapp":  "WhatsApp / 위챗 ID",
+                         "form_whatsapp_placeholder":  "선택사항 — 빠른 소통을 위해",
+                         "form_consent":  "개인정보 수집 및 이용에 동의합니다.",
+                         "form_submit":  "문의 보내기",
+                         "success":  "24시간 내에 연락드리겠습니다!"
+                     },
+    "recruit_page":  {
+                         "title":  "채용",
+                         "intro":  "SalesKR은 혁신과 발전을 위해 함께할 인재를 찾습니다.",
+                         "apply":  "지원하기"
+                     }
 }
