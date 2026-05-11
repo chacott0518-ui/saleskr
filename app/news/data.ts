@@ -27,6 +27,101 @@ export interface NewsArticle {
 }
 
 export const NEWS_ARTICLES: NewsArticle[] = [
+    // ──────────────────────────────────────────────────────────
+  // 기사 5 · PARTNERSHIP · 2026-05-11
+  // ──────────────────────────────────────────────────────────
+  {
+    id: "saleskr-gudai-global-partnership-2026",
+    date: "2026-05-11",
+    dateDisplay: "MAY 11, 2026",
+    category: "PARTNERSHIP",
+
+    title: "SalesKR Secures Official Sourcing Partnership with Gudai Global",
+    subtitle:
+      "A landmark direct sourcing agreement with Gudai Global unlocks authentic access to Beauty of Joseon, SKIN1004, TIRTIR, and Dr. Nineteen — positioning SalesKR as a premier K-Beauty gateway for Latin America, CIS, Hong Kong, and Africa.",
+    excerpt:
+      "SalesKR has officially established a direct sourcing partnership with Gudai Global, securing authenticated supply of some of Korea's most sought-after skincare brands. This milestone agreement marks a significant expansion of SalesKR's global distribution capabilities and its commitment to delivering genuine, trend-leading K-Beauty products to emerging markets worldwide.",
+
+    listImage: "/images/gudai-partnership-hero.png",
+    mainImage: "/images/gudai-partnership-hero.png",
+    image2:
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&q=80",
+    image2Caption:
+      "Gudai Global's portfolio includes some of Korea's most globally recognized skincare brands, now available through SalesKR with full authenticity guarantees and direct sourcing documentation.",
+    image3:
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1200&q=80",
+    image3Caption:
+      "Latin America and emerging markets represent the next major frontier for K-Beauty growth. SalesKR's new partnership infrastructure is purpose-built to serve these high-growth regions with speed, compliance, and competitive pricing.",
+
+    stats: [
+      { value: "4",    label: "Brands Secured"         },
+      { value: "6+",   label: "Target Markets"         },
+      { value: "24hr", label: "Inquiry Response Time"  },
+    ],
+
+    pullquote:
+      '"This partnership is not just about adding brands to our portfolio. It is about giving our global buyers the confidence that every product they source through SalesKR is authentic, compliant, and backed by a direct relationship with the brand headquarters."',
+    pullquoteAuthor: "Jung, Yong Chul — CEO, SalesKR",
+
+    lead:
+      "SalesKR is proud to announce the official establishment of a direct sourcing partnership with Gudai Global, the brand company behind some of the most recognized and fastest-growing names in Korean skincare — Beauty of Joseon, SKIN1004, TIRTIR, and the emerging derma-cosmetic label Dr. Nineteen. This agreement represents one of the most significant milestones in SalesKR's history as a global K-Beauty distributor, transforming the company's sourcing model from indirect procurement to fully authenticated, brand-headquarters-direct supply. For SalesKR's international buyer network spanning 47 countries, this means a fundamentally more reliable, more transparent, and more competitive supply chain for some of the world's most in-demand Korean skincare products.",
+
+    sections: [
+      {
+        heading: "What This Partnership Means for Global Buyers",
+        paragraphs: [
+          "The Korean beauty export market is increasingly defined by the challenge of authenticity. As global demand for brands like Beauty of Joseon, SKIN1004, and TIRTIR has surged, so too has the volume of parallel imports, grey-market product, and counterfeit goods entering international channels. For importers, distributors, and retail buyers, sourcing from unverified intermediaries carries significant risk — not just in terms of product quality and regulatory compliance, but in terms of brand reputation with end consumers who have become increasingly sophisticated in identifying inauthentic product.",
+          "SalesKR's direct sourcing agreement with Gudai Global eliminates this risk entirely. Under the terms of the partnership, all products supplied by SalesKR through this agreement are sourced directly from Gudai Global's brand headquarters in Korea. This means that every unit shipped carries the full chain-of-custody documentation required by importers in markets with strict authenticity and origin requirements, including certificates of origin, brand authorization letters, and Korean FDA registration documentation where applicable.",
+          "For buyers who have previously relied on indirect sourcing channels for these brands, the SalesKR-Gudai Global partnership offers a clear upgrade path: direct pricing with no additional intermediary margins, documented authenticity that satisfies customs and retail compliance requirements, and a single point of contact for all supply, documentation, and logistics needs.",
+          "Beyond the immediate supply benefits, the partnership also gives SalesKR buyers priority access to new product launches, limited edition collections, and seasonal SKUs from the Gudai Global brand portfolio — a meaningful advantage in markets where being first to shelf with trending Korean skincare products drives significant retail performance.",
+        ],
+      },
+      {
+        heading: "Strategic Focus: Latin America, CIS, Hong Kong, and Africa",
+        paragraphs: [
+          "While SalesKR's existing distribution network spans 47 countries across Asia Pacific, Europe, North America, and the Middle East, this partnership is specifically designed to accelerate growth in four high-priority emerging market regions: Latin America, CIS countries, Hong Kong, and Africa.",
+          "Latin America represents perhaps the most compelling opportunity. Consumer awareness of Korean skincare has grown dramatically in markets including Mexico, Brazil, Colombia, and Chile, driven by social media influence, the global expansion of K-pop culture, and the increasing availability of Korean products in regional specialty retail chains. However, the supply chain infrastructure to support consistent, authenticated sourcing of Korean products into Latin America has historically lagged behind consumer demand. SalesKR's Gudai Global partnership addresses this gap directly, providing the documentation, compliance support, and logistics coordination that Latin American importers need to bring authentic K-Beauty brands to market at scale.",
+          "The CIS region — encompassing Russia, Kazakhstan, Ukraine, and neighboring markets — has historically been an important but complex market for Korean beauty exports. Regulatory requirements vary significantly between countries, and the documentation burden for product registration can be substantial. SalesKR's experience in navigating complex export documentation, combined with the brand-direct sourcing relationship established through the Gudai Global partnership, positions the company to serve CIS buyers with a level of compliance support that few Korean distributors can match.",
+          "In Hong Kong, the partnership strengthens SalesKR's ability to compete in one of Asia's most sophisticated and brand-conscious beauty markets. Hong Kong consumers are among the most knowledgeable K-Beauty buyers in the world, and brand authenticity is a non-negotiable baseline expectation. The Gudai Global partnership provides the verified sourcing credentials that Hong Kong retailers and distributors require.",
+          "Africa represents the longest-term opportunity in SalesKR's emerging market strategy. Rising middle-class consumer spending, growing urban retail infrastructure, and increasing exposure to global beauty trends through digital channels are creating the conditions for significant K-Beauty growth across Sub-Saharan Africa, North Africa, and East Africa. SalesKR is establishing the supply chain foundations now — through partnerships like the one with Gudai Global — to be positioned as the leading K-Beauty source when these markets reach full scale.",
+        ],
+      },
+      {
+        heading: "Introducing Dr. Nineteen: Derma-Cosmetic Innovation for Emerging Markets",
+        paragraphs: [
+          "A particularly significant element of the Gudai Global partnership is SalesKR's introduction of Dr. Nineteen to its global distribution portfolio. Dr. Nineteen is a derma-cosmetic brand that has been specifically developed to address the functional skincare needs of emerging market consumers — combining the clinical efficacy credentials that define Korea's premium derma-cosmetic segment with an accessible price positioning that makes high-performance skincare available to a broader consumer base.",
+          "The brand's core philosophy is grounded in the belief that effective skincare should not be a luxury. Dr. Nineteen's formulations are developed with the same rigorous approach to ingredient science that characterizes Korea's leading derma-cosmetic labels — active concentrations validated for efficacy, minimal fragrance and irritant profiles, and clinical testing documentation — but at a price point and packaging specification that is deliberately designed for mass-market retail in price-sensitive markets.",
+          "Key categories in the Dr. Nineteen range include barrier-repair moisturizers, niacinamide-centered brightening serums, CICA-based soothing treatments, and broad-spectrum SPF products formulated for tropical climates. This product mix is particularly well-aligned with the most prevalent skincare concerns in Latin America and Africa: hyperpigmentation from sun exposure, humidity-related skin congestion, and the need for lightweight yet effective daily protection.",
+          "For SalesKR buyers in Mexico, Brazil, Colombia, and South Africa, Dr. Nineteen represents an opportunity to offer clinically credible Korean skincare at a retail price point that can achieve meaningful mass-market penetration — a combination that has proven successful in analogous markets across Southeast Asia over the past three years.",
+          "SalesKR will provide full brand introduction support for Dr. Nineteen, including product education materials, ingredient documentation, retail merchandising guidance, and clinical reference summaries for buyers who need to present the brand to pharmacy and drugstore buyers in their markets.",
+        ],
+      },
+      {
+        heading: "Compliance and Market-Specific Distribution Strategy",
+        paragraphs: [
+          "One of the defining characteristics of SalesKR's approach to international distribution is the company's commitment to compliance-first supply chain management. This is particularly important in markets like Mexico, where the Federal Commission for Protection against Sanitary Risk (COFEPRIS) requires product registration and import licensing for cosmetics before retail sale. SalesKR's team is fully equipped to assist buyers with the documentation process required for COFEPRIS registration, including providing the certificates of free sale, Good Manufacturing Practice documentation, and product formulation data that the registration process requires.",
+          "It is also important to be transparent about the distribution framework within which the Gudai Global partnership operates. Certain brands within the Gudai Global portfolio maintain exclusive distribution agreements in specific retail channels — particularly large-format retail chains and department store groups. In markets where such exclusivity arrangements are in place, SalesKR works closely with each buyer to clearly define and verify the local distribution channels being targeted, ensuring that all supply arrangements are fully compliant with the brand's channel policies.",
+          "This channel verification process is not a barrier to doing business — it is a protection for buyers. By ensuring that each SalesKR buyer is operating within a clearly defined and brand-approved distribution channel, we protect our buyers from the risk of future channel conflicts that could disrupt their business. SalesKR's compliance framework is designed to create sustainable, long-term supply relationships rather than short-term transactional opportunities that may later create legal or commercial complications.",
+          "For buyers in markets with complex import regulatory environments, SalesKR offers a dedicated compliance consultation service as part of its partnership onboarding process. This includes a review of the target market's cosmetics import requirements, identification of any product-specific registration needs, and a timeline assessment for bringing the Gudai Global portfolio brands to retail-ready status in the buyer's market.",
+        ],
+      },
+      {
+        heading: "SalesKR's Commitment to Authentic, Long-Term K-Beauty Supply",
+        paragraphs: [
+          "The Gudai Global partnership is the latest in a series of strategic sourcing relationships that SalesKR has built since its establishment in 2019. Over that period, the company has grown from a focused Korean cosmetics trading operation into a comprehensive multi-category export platform, serving verified importers, distributors, and retail buyers across 47 countries with a portfolio spanning more than 70 Korean brands in cosmetics, K-food, and health supplements.",
+          "What has remained constant throughout that growth is SalesKR's foundational commitment to authenticity. In a market increasingly complicated by grey-market supply, counterfeit product, and unauthorized parallel imports, SalesKR's value proposition is built on the opposite: verified sourcing, documented authenticity, and supply relationships that can withstand the scrutiny of the most demanding retail and regulatory environments.",
+          "The Gudai Global partnership strengthens this proposition meaningfully. By securing direct brand-headquarters sourcing for Beauty of Joseon, SKIN1004, TIRTIR, and Dr. Nineteen, SalesKR is adding four of the most globally in-demand Korean skincare brands to its authenticated portfolio — and making them available to buyers in emerging markets that have historically struggled to access these brands through legitimate supply channels.",
+          "For international buyers who are serious about building a sustainable K-Beauty business in their markets, SalesKR's direct brand partnerships offer something that the grey market cannot: reliability, compliance, and a supply relationship built to last.",
+        ],
+      },
+    ],
+
+    conclusionHeading: "Partner with SalesKR — Your Direct Gateway to Authentic K-Beauty",
+    conclusionParagraphs: [
+      "SalesKR welcomes direct inquiries from importers, distributors, and retail buyers in Latin America, CIS countries, Hong Kong, Africa, and all other target markets. Whether you are looking to introduce Beauty of Joseon, SKIN1004, or TIRTIR to your market for the first time, or to explore the opportunity with the Dr. Nineteen derma-cosmetic brand, our team is ready to provide full product catalogs, pricing proposals, compliance documentation, and sample arrangements.",
+      "With over a decade of experience in global distribution and parallel export of Korean cosmetics and food products, SalesKR continues to connect international buyers with authentic, trend-leading K-beauty brands. We are committed to providing authentic products sourced directly from Korea, competitive pricing and flexible supply solutions, and market-specific strategies for long-term growth. Contact us at www.saleskr.com or reach our team directly for wholesale inquiries and global partnership opportunities. We look forward to building a long-term supply relationship with your business.",
+    ],
+  },
 
   // ──────────────────────────────────────────────────────────
   // 기사 1 · MARKET · 2026-03-18

@@ -39,9 +39,11 @@ export default function NewsPage() {
       {/* NEWS LIST */}
       <section className="relative z-10 mx-auto -mt-20 max-w-7xl px-6">
 
-        {/* Mobile: horizontal scroll */}
-        <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-10 lg:hidden"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+        {/* 모바일: 가로 스크롤 */}
+        <div
+          className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-10 lg:hidden"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
+        >
           {SORTED_NEWS.map((item) => (
             <Link
               key={item.id}
@@ -73,8 +75,8 @@ export default function NewsPage() {
           ))}
         </div>
 
-        {/* Desktop: 2-col grid */}
-        <div className="hidden grid-cols-2 gap-12 lg:grid">
+        {/* 데스크톱: 2열 그리드 */}
+        <div className="hidden grid-cols-2 gap-8 lg:grid" style={{ gridAutoRows: "1fr" }}>
           {SORTED_NEWS.map((item, i) => (
             <motion.article
               key={item.id}
@@ -82,28 +84,30 @@ export default function NewsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -6 }}
               className="group overflow-hidden rounded-[48px] border border-gray-50 bg-white shadow-sm transition-all duration-500 hover:shadow-2xl"
             >
-              <Link href={`/news/${item.id}`} className="flex w-full">
-                <div className="w-2/5 overflow-hidden">
+              <Link href={`/news/${item.id}`} className="flex h-full w-full">
+                {/* 왼쪽 이미지 — 고정 너비, 높이 자동 */}
+                <div className="w-[240px] flex-shrink-0 overflow-hidden">
                   <img
                     src={item.listImage}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     alt={item.title}
                   />
                 </div>
-                <div className="flex w-3/5 flex-col justify-center p-10">
+                {/* 오른쪽 텍스트 */}
+                <div className="flex flex-1 flex-col justify-center overflow-hidden p-8">
                   <span className="text-[11px] font-black uppercase tracking-widest text-blue-600">
                     {item.category}
                   </span>
-                  <h3 className="mt-3 text-2xl font-bold leading-tight text-[#0A1F44] transition-colors group-hover:text-blue-700">
+                  <h3 className="mt-2 line-clamp-2 text-xl font-bold leading-snug text-[#0A1F44] transition-colors group-hover:text-blue-700">
                     {item.title}
                   </h3>
-                  <p className="mt-4 line-clamp-2 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-500">
                     {item.excerpt}
                   </p>
-                  <div className="mt-8 flex items-center gap-2 text-[11px] font-black text-[#0A1F44]">
+                  <div className="mt-4 flex items-center gap-2 text-[11px] font-black text-[#0A1F44]">
                     VIEW DETAILS
                     <span className="text-lg text-blue-500 transition-transform duration-200 group-hover:translate-x-1">
                       →
@@ -114,6 +118,7 @@ export default function NewsPage() {
             </motion.article>
           ))}
         </div>
+
       </section>
     </div>
   );
