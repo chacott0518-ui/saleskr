@@ -9,24 +9,186 @@ export interface NewsArticle {
   dateDisplay: string;
   category: string;
   title: string;
+  titleKo?: string;
   subtitle: string;
+  subtitleKo?: string;
   excerpt: string;
+  excerptKo?: string;
   listImage: string;
   mainImage: string;
   image2: string;
   image2Caption: string;
+  image2CaptionKo?: string;
   image3: string;
   image3Caption: string;
-  stats: { value: string; label: string }[];
+  image3CaptionKo?: string;
+  stats: { value: string; label: string; labelKo?: string }[];
   pullquote: string;
+  pullquoteKo?: string;
   pullquoteAuthor: string;
   lead: string;
+  leadKo?: string;
   sections: { heading: string; paragraphs: string[] }[];
+  sectionsKo?: { heading: string; paragraphs: string[] }[];
   conclusionHeading: string;
+  conclusionHeadingKo?: string;
   conclusionParagraphs: string[];
+  conclusionParagraphsKo?: string[];
 }
 
 export const NEWS_ARTICLES: NewsArticle[] = [
+  // ──────────────────────────────────────────────────────────
+  // 기사 6 · PARTNERSHIP · 2026-05-13
+  // ──────────────────────────────────────────────────────────
+  {
+    id: "saleskr-inyoe-global-partnership-2026",
+    date: "2026-05-13",
+    dateDisplay: "MAY 13, 2026",
+    category: "PARTNERSHIP",
+
+    title: "SalesKR Partners with INYOE as Strategic Global Brand Partner",
+    titleKo: "세일즈KR, 차세대 K-뷰티 브랜드 'INYOE' 글로벌 전략 파트너로 나서",
+
+    subtitle: "As K-Beauty giants like Beauty of Joseon, Medicube, and Anua dominate global shelves, SalesKR is betting on the next rising star — INYOE — as a long-term strategic global partner from the very beginning of its international journey.",
+    subtitleKo: "조선미녀, 메디큐브, 아누아 등 글로벌 K-뷰티 브랜드들이 세계 시장을 주도하는 가운데, 세일즈KR은 차세대 라이징 브랜드 INYOE와 초기 단계부터 장기 전략 파트너십을 맺었다.",
+
+    excerpt: "SalesKR has announced a strategic global partnership with Korean skincare brand INYOE, going beyond traditional B2B export to co-develop overseas brand positioning, launch strategy, and international market expansion from the earliest stages of the brand's global journey.",
+    excerptKo: "세일즈KR이 한국 스킨케어 브랜드 인요에(INYOE)와 전략적 글로벌 파트너십을 체결했다고 발표했다. 단순 수출을 넘어 브랜드의 글로벌 포지셔닝, 런칭 전략, 해외 시장 확장을 초기 단계부터 함께 기획하는 방식이다.",
+
+    listImage: "/images/inyoe-giftbox-hero.png",
+mainImage: "/images/inyoe-giftbox-hero.png",
+
+    image2: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&q=80",
+    image2Caption: "INYOE's formulations are built on clinically validated active ingredients including Fenugreek PDRN Complex, positioning the brand firmly in the derma-cosmetic segment that is driving K-Beauty's next wave of global growth.",
+    image2CaptionKo: "INYOE의 제품은 펜누그리크 PDRN 복합체 등 임상적으로 검증된 성분을 기반으로, 글로벌 K-뷰티 성장을 이끄는 더마코스메틱 세그먼트에 확고히 자리잡고 있다.",
+
+    image3: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&q=80",
+    image3Caption: "SalesKR's global distribution infrastructure spans 47 countries, providing INYOE with an immediate pathway to verified importers, distributors, and retail buyers across Asia Pacific, Europe, CIS, Latin America, and the Middle East.",
+    image3CaptionKo: "세일즈KR의 글로벌 유통 인프라는 47개국에 걸쳐 있으며, INYOE에게 아시아태평양, 유럽, CIS, 중남미, 중동 전역의 검증된 수입업체 및 유통업체로의 즉각적인 진입 경로를 제공한다.",
+
+    stats: [
+      { value: "100+", label: "Daily DM Inquiries (Kazakhstan)", labelKo: "카자흐스탄 일일 DM 문의" },
+      { value: "2mo",  label: "Amazon Launch to First Hundreds", labelKo: "아마존 런칭 후 첫 수백 건" },
+      { value: "EU",   label: "CPNP Registration Underway", labelKo: "CPNP 유럽 인증 진행 중" },
+    ],
+
+    pullquote: '"The next global K-Beauty success story may not come only from already-established names. Just as Beauty of Joseon and Medicube experienced explosive global growth, we strongly believe INYOE has the potential to become one of the most talked-about rising Korean beauty brands of 2026."',
+    pullquoteKo: '"다음 글로벌 K-뷰티 성공 브랜드는 반드시 기존 유명 브랜드에서만 나오는 것은 아닙니다. 조선미녀나 메디큐브처럼 폭발적인 글로벌 성장을 보여준 브랜드들에 이어, 인요에 역시 2026년 가장 주목받는 라이징 K-뷰티 브랜드 중 하나가 될 가능성이 매우 높다고 생각합니다."',
+    pullquoteAuthor: "Chris Jung — CEO, SalesKR",
+
+    lead: "The global K-Beauty market has never been more competitive — or more full of opportunity. As established Korean skincare brands like Beauty of Joseon, Medicube, SKIN1004, and Anua have cemented their positions on the shelves of global retailers from Sephora to Amazon, a new generation of Korean skincare brands is emerging with the ingredient science, brand philosophy, and product quality to follow in their footsteps. SalesKR has identified one such brand early: INYOE. In a departure from its traditional B2B export model, SalesKR has announced a full strategic global partnership with INYOE — one that begins not at the shipping stage, but at the very inception of the brand's international strategy.",
+    leadKo: "글로벌 K-뷰티 시장은 그 어느 때보다 경쟁이 치열하면서도 기회로 가득 차 있다. 조선미녀, 메디큐브, 스킨1004, 아누아 등 기존 한국 스킨케어 브랜드들이 세포라부터 아마존까지 글로벌 유통채널에 확고히 자리를 잡은 가운데, 새로운 세대의 한국 스킨케어 브랜드들이 성분 경쟁력, 브랜드 철학, 제품 품질을 앞세워 그 뒤를 따르고 있다. 세일즈KR은 그 중 한 브랜드를 일찍이 발견했다. 바로 인요에(INYOE)다. 세일즈KR은 전통적인 B2B 수출 모델에서 벗어나 INYOE와의 전략적 글로벌 파트너십을 발표했으며, 이는 단순 출하 단계가 아닌 브랜드의 해외 전략 수립 초기 단계부터 함께하는 방식이다.",
+
+    sections: [
+      {
+        heading: "INYOE: The Next Rising K-Beauty Brand",
+        paragraphs: [
+          "INYOE is a Korean skincare brand that has been built from the ground up on a philosophy of ingredient integrity and clinical performance. In a market where K-Beauty brand launches have become commoditized, INYOE stands apart through its commitment to formulations that deliver measurable results — not through marketing claims, but through the quality and concentration of its active ingredients.",
+          "The brand's flagship product, the TENSI CREAM with 10% Fenugreek PDRN Complex, exemplifies this approach. Fenugreek-derived PDRN (Polydeoxyribonucleotide) is an advanced bioactive ingredient with well-documented tissue-regenerative and anti-inflammatory properties, widely used in medical aesthetics and increasingly adopted in premium cosmeceutical formulations. INYOE's decision to center its hero product around this ingredient — at a 10% active concentration — reflects a product development philosophy that prioritizes clinical credibility over trend-chasing.",
+          "This approach has resonated strongly with the international consumers and trade buyers who have encountered INYOE products. In a global beauty market increasingly defined by ingredient-literate consumers who research actives before purchasing, INYOE's transparent formulation philosophy and clinical positioning represent a powerful competitive advantage. SalesKR recognized this potential early, and structured its partnership with INYOE accordingly — not as a supplier, but as a strategic co-pilot for the brand's international journey.",
+          "The timing of INYOE's global launch aligns with a broader shift in K-Beauty consumption patterns. The first wave of K-Beauty's global success was driven by novelty and affordability. The second wave, led by brands like Beauty of Joseon and Anua, was driven by storytelling and ingredient transparency. The third wave — which INYOE is positioned to lead — will be defined by clinical credibility, derma-cosmetic positioning, and the trust that comes from formulations backed by science rather than trends.",
+        ],
+      },
+      {
+        heading: "Beyond Export: A True Strategic Partnership",
+        paragraphs: [
+          "The nature of SalesKR's relationship with INYOE is fundamentally different from a traditional export arrangement. In a conventional Korean cosmetics export model, a distributor receives finished product, handles logistics and customs, and manages local sales. The brand's international identity, positioning, and market strategy are largely determined unilaterally by the Korean manufacturer, with limited input from distribution partners.",
+          "SalesKR's partnership with INYOE inverts this model. From the earliest stages of INYOE's international expansion planning, SalesKR has been involved as a strategic partner — contributing market intelligence, buyer network insights, regulatory guidance, and distribution strategy input that shapes how the brand is positioned, packaged, and communicated in each target market.",
+          "This means that INYOE's international launch strategy has been built with the realities of each target market in mind from the beginning. Pricing architecture, retail channel selection, influencer strategy, and regulatory certification priorities have all been developed collaboratively, with SalesKR's global distribution experience informing decisions that will determine the brand's long-term success in each market.",
+          "For international buyers working with SalesKR, this partnership model offers a significant advantage: access to a brand that has been market-ready from day one, with pricing, documentation, and channel strategy that has been professionally developed for international trade rather than adapted from domestic Korean positioning after the fact.",
+        ],
+      },
+      {
+        heading: "CIS Market Momentum: Kazakhstan and Beyond",
+        paragraphs: [
+          "Perhaps the most striking early indicator of INYOE's global potential has come from the CIS region, and particularly from Kazakhstan. Without any formal distribution agreement or paid marketing campaigns in the country, INYOE has begun receiving more than 100 influencer collaboration and product test requests per day through social media channels — an organic demand signal that experienced K-Beauty exporters recognize as a reliable early indicator of breakout brand potential.",
+          "The CIS beauty market — encompassing Russia, Kazakhstan, Ukraine, Uzbekistan, and neighboring countries — has historically been one of the most receptive markets in the world for K-Beauty products. Consumer sophistication around Korean skincare is high, influencer culture is deeply embedded in beauty purchasing behavior, and demand for authentic Korean products continues to outpace supply in many sub-markets.",
+          "Kazakhstan in particular has emerged as a bellwether market for K-Beauty brands targeting the broader CIS region. Its relatively open import environment, high social media engagement rates, and cosmopolitan consumer base in cities like Almaty and Nur-Sultan have made it an ideal test market for Korean brands preparing for broader CIS distribution. INYOE's organic traction in Kazakhstan — achieved with no formal marketing spend — suggests that when formal distribution infrastructure is established, the brand's commercial potential in the region could be substantial.",
+          "SalesKR is currently in active conversations with verified CIS distributors to establish the supply chain and documentation framework required to support formal market entry. The CPNP registration work being undertaken simultaneously for the European market will also provide a foundation for regulatory compliance in CIS countries that align their cosmetics standards with EU requirements.",
+        ],
+      },
+      {
+        heading: "Amazon USA: Faster Growth Than Expected",
+        paragraphs: [
+          "INYOE's performance on Amazon USA represents another early validation data point that has exceeded expectations. Within approximately two months of its Amazon launch, the brand had recorded several hundred sales — a result that, while modest in absolute terms, is considered strong performance for a new Korean skincare brand without an established US presence or significant paid advertising support.",
+          "The Amazon US market is one of the most challenging environments in global e-commerce for Korean beauty brands. Consumer discovery is driven by algorithm ranking, review volume, and category competitiveness — factors that take time and investment to build. The fact that INYOE has achieved meaningful early traction without a large media budget suggests that the brand's product quality and ingredient positioning are generating genuine organic interest from US consumers.",
+          "Industry analysts who track K-Beauty performance on Amazon note that early sales velocity and review sentiment are the most reliable predictors of long-term brand performance on the platform. INYOE's early trajectory aligns with the early Amazon performance patterns of several K-Beauty brands that have since grown to significant market positions in the US — including brands that SalesKR has observed closely through its distribution network.",
+          "SalesKR is supporting INYOE's Amazon US strategy with supply chain optimization and logistics coordination, ensuring that inventory availability keeps pace with growing demand. The company is also exploring opportunities to expand INYOE's US presence beyond Amazon to include specialty beauty retailers and Korean grocery channels where demand for premium Korean skincare is well-established.",
+        ],
+      },
+      {
+        heading: "European Market: CPNP Registration Underway",
+        paragraphs: [
+          "European market entry represents the most strategically significant long-term opportunity in INYOE's international expansion plan. The EU cosmetics market is the world's largest regulated beauty market, and CPNP (Cosmetic Products Notification Portal) registration is a non-negotiable requirement for any cosmetic product sold within the European Economic Area. For Korean brands, completing CPNP registration with the required safety assessment documentation, responsible person appointment, and product information file preparation is a multi-month process that requires specialist regulatory expertise.",
+          "INYOE, with SalesKR's guidance, has already initiated the CPNP registration process for its core product range. Several regulatory procedures are already underway, positioning the brand ahead of many Korean competitors who have not yet begun the EU certification process. This first-mover advantage in regulatory readiness is particularly valuable given the growing demand for Korean skincare in European markets including Germany, France, the Netherlands, and the Nordic countries.",
+          "The European derma-cosmetic channel — which includes pharmacy retail, medical aesthetics clinics, and premium skincare boutiques — is an ideal fit for INYOE's clinical ingredient positioning. European pharmacy buyers and dermatology professionals are increasingly receptive to Korean cosmeceutical brands that can provide rigorous ingredient documentation and safety substantiation. INYOE's PDRN-based formulations, backed by medical-grade ingredient sourcing and clinical testing data, are well-positioned to meet these requirements.",
+          "SalesKR is coordinating with European regulatory consultants and potential distribution partners to ensure that INYOE's EU market entry is structured for long-term success rather than short-term opportunistic sales. The goal is to establish INYOE in European markets with the same level of professional brand positioning and channel management that has driven the success of Korea's most respected derma-cosmetic brands.",
+        ],
+      },
+    ],
+
+    sectionsKo: [
+      {
+        heading: "INYOE: 차세대 라이징 K-뷰티 브랜드",
+        paragraphs: [
+          "INYOE는 성분의 진정성과 임상적 효능 철학을 기반으로 처음부터 탄탄하게 구축된 한국 스킨케어 브랜드다. K-뷰티 브랜드 출시가 범람하는 시장에서 INYOE는 마케팅 주장이 아닌 성분의 품질과 농도로 측정 가능한 효과를 입증하는 제품력으로 차별화된다.",
+          "브랜드의 대표 제품인 '10% 펜누그리크 PDRN 복합체 텐시 크림'이 이 철학을 잘 보여준다. 펜누그리크 유래 PDRN(폴리데옥시리보뉴클레오타이드)은 조직 재생 및 항염 효과가 임상적으로 검증된 첨단 생체활성 성분으로, 의료 에스테틱 분야에서 널리 사용되며 고급 코스메슈티컬 제품에서도 채택이 증가하고 있다. 이 성분을 10% 활성 농도로 히어로 제품의 중심에 놓은 결정은 트렌드보다 임상적 신뢰를 우선시하는 제품 개발 철학을 반영한다.",
+          "이러한 접근 방식은 INYOE 제품을 접한 해외 소비자와 바이어들 사이에서 강한 반향을 불러일으키고 있다. 구매 전 성분을 직접 조사하는 성분 이해도 높은 소비자들이 주도하는 글로벌 뷰티 시장에서, INYOE의 투명한 포뮬레이션 철학과 임상적 포지셔닝은 강력한 경쟁 우위를 제공한다.",
+          "INYOE의 글로벌 런칭 타이밍은 K-뷰티 소비 패턴의 큰 변화와 맞닿아 있다. K-뷰티 글로벌 성공의 첫 번째 물결은 신선함과 가성비로, 두 번째 물결은 스토리텔링과 성분 투명성으로 이끌어졌다. 이제 INYOE가 선도할 세 번째 물결은 임상적 신뢰, 더마코스메틱 포지셔닝, 그리고 트렌드가 아닌 과학이 뒷받침하는 제품력에 의해 정의될 것이다.",
+        ],
+      },
+      {
+        heading: "수출을 넘어선 진정한 전략적 파트너십",
+        paragraphs: [
+          "세일즈KR과 INYOE의 관계는 전통적인 수출 방식과 근본적으로 다르다. 기존 한국 화장품 수출 모델에서는 유통업체가 완제품을 받아 물류·통관을 처리하고 현지 판매를 관리한다. 브랜드의 해외 아이덴티티, 포지셔닝, 시장 전략은 한국 제조사가 일방적으로 결정하는 경우가 대부분이다.",
+          "세일즈KR의 INYOE 파트너십은 이 모델을 뒤집는다. INYOE의 해외 진출 기획 초기 단계부터 세일즈KR은 전략적 파트너로 참여해, 시장 인텔리전스, 바이어 네트워크 인사이트, 규제 가이던스, 유통 전략 인풋을 제공하며 브랜드가 각 타깃 시장에서 어떻게 포지셔닝되고, 패키징되고, 커뮤니케이션될지를 함께 결정한다.",
+          "이는 INYOE의 해외 런칭 전략이 처음부터 각 타깃 시장의 현실을 반영해 설계되었음을 의미한다. 가격 구조, 유통 채널 선택, 인플루언서 전략, 인증 우선순위가 모두 협력적으로 개발되었으며, 세일즈KR의 글로벌 유통 경험이 브랜드의 장기적 성공을 결정할 의사결정에 반영되어 있다.",
+          "세일즈KR과 협력하는 해외 바이어들에게 이 파트너십 모델은 중요한 이점을 제공한다. 처음부터 국제 무역에 맞게 전문적으로 개발된 가격, 서류, 채널 전략을 갖춘 '시장 준비 완료' 브랜드를 만날 수 있기 때문이다.",
+        ],
+      },
+      {
+        heading: "CIS 시장 모멘텀: 카자흐스탄과 그 너머",
+        paragraphs: [
+          "INYOE의 글로벌 잠재력을 보여주는 가장 인상적인 초기 신호는 CIS 지역, 특히 카자흐스탄에서 나왔다. 공식 유통 계약이나 유료 마케팅 캠페인 없이도 INYOE는 소셜 미디어를 통해 하루 100건 이상의 인플루언서 협업 및 제품 테스트 문의를 받기 시작했다. 경험 있는 K-뷰티 수출업체들이 브랜드 폭발적 성장의 신뢰할 수 있는 초기 지표로 인식하는 유기적 수요 신호다.",
+          "러시아, 카자흐스탄, 우크라이나, 우즈베키스탄 등을 포함한 CIS 뷰티 시장은 역사적으로 K-뷰티 제품에 가장 수용적인 시장 중 하나였다. 한국 스킨케어에 대한 소비자 이해도가 높고, 인플루언서 문화가 뷰티 구매 행동에 깊이 내재되어 있으며, 정품 한국 제품에 대한 수요는 여전히 공급을 초과하고 있다.",
+          "특히 카자흐스탄은 광범위한 CIS 진출을 준비하는 K-뷰티 브랜드들의 시험 시장으로 부상했다. 비교적 열린 수입 환경, 높은 소셜 미디어 인게이지먼트, 알마티와 누르술탄 등 주요 도시의 세련된 소비자 기반이 최적의 테스트베드를 제공한다. 공식 마케팅 비용 없이 달성된 INYOE의 카자흐스탄 유기적 성장세는 공식 유통 인프라가 구축되면 브랜드의 상업적 잠재력이 상당할 수 있음을 시사한다.",
+          "세일즈KR은 현재 검증된 CIS 유통업체들과 공식 시장 진입을 지원하는 공급망 및 서류 체계 구축을 위한 협의를 진행 중이다. 유럽 시장을 위해 진행 중인 CPNP 등록 작업은 EU 기준에 맞춰 화장품 기준을 운영하는 CIS 국가들의 규제 준수를 위한 기반도 제공할 것이다.",
+        ],
+      },
+      {
+        heading: "아마존 미국: 예상보다 빠른 성장",
+        paragraphs: [
+          "아마존 미국에서의 INYOE 성과는 예상을 뛰어넘는 또 다른 초기 검증 데이터다. 아마존 런칭 약 두 달 만에 수백 건의 판매를 기록했다. 공식 미국 입지나 대규모 광고 지원 없이 진출한 신규 한국 스킨케어 브랜드로서는 강력한 성과다.",
+          "아마존 미국 시장은 한국 뷰티 브랜드에게 글로벌 이커머스에서 가장 도전적인 환경 중 하나다. 소비자 발견은 알고리즘 랭킹, 리뷰 수, 카테고리 경쟁력에 의해 좌우된다. 대규모 미디어 예산 없이 INYOE가 의미 있는 초기 성장세를 보인다는 것은 제품 품질과 성분 포지셔닝이 미국 소비자들의 진정한 유기적 관심을 끌어내고 있음을 시사한다.",
+          "업계에서는 아마존 초기 판매 속도와 리뷰 감정이 플랫폼 내 브랜드의 장기 성과를 가장 신뢰할 수 있게 예측하는 지표라고 본다. INYOE의 초기 궤적은 이후 미국 시장에서 상당한 위치를 차지하게 된 여러 K-뷰티 브랜드들의 초기 아마존 성과 패턴과 일치한다.",
+          "세일즈KR은 공급망 최적화와 물류 조율로 INYOE의 아마존 미국 전략을 지원하며, 늘어나는 수요에 재고 가용성이 발맞출 수 있도록 하고 있다. 또한 한국 스킨케어 수요가 검증된 스페셜티 뷰티 리테일러 및 한국 식품 채널로 미국 내 INYOE 입지를 확장하는 방안도 검토 중이다.",
+        ],
+      },
+      {
+        heading: "유럽 시장: CPNP 등록 진행 중",
+        paragraphs: [
+          "유럽 시장 진입은 INYOE 해외 확장 계획에서 장기적으로 가장 전략적으로 중요한 기회다. EU 화장품 시장은 세계 최대의 규제 뷰티 시장이며, CPNP(화장품 제품 신고 포털) 등록은 유럽경제지역 내 판매되는 모든 화장품의 필수 요건이다. 한국 브랜드에게 안전성 평가 서류, 책임자 선정, 제품 정보 파일 준비가 포함된 CPNP 등록 완료는 전문 규제 전문성이 필요한 수개월의 과정이다.",
+          "INYOE는 세일즈KR의 가이던스 하에 핵심 제품군의 CPNP 등록 프로세스를 이미 시작했다. 여러 규제 절차가 이미 진행 중으로, 유럽 인증 프로세스를 아직 시작하지 않은 많은 한국 경쟁사들보다 유리한 위치를 선점하고 있다. 독일, 프랑스, 네덜란드, 북유럽 국가들을 포함한 유럽 시장에서 한국 스킨케어 수요가 증가하는 만큼 이 선점 우위는 특히 가치가 있다.",
+          "약국, 의료 에스테틱 클리닉, 프리미엄 스킨케어 부티크를 포함한 유럽 더마코스메틱 채널은 INYOE의 임상 성분 포지셔닝에 이상적으로 부합한다. 유럽 약국 바이어들과 피부과 전문의들은 엄격한 성분 서류와 안전성 근거를 제공할 수 있는 한국 코스메슈티컬 브랜드에 점점 더 우호적이다. 의료 등급 성분 소싱과 임상 테스트 데이터가 뒷받침되는 INYOE의 PDRN 기반 포뮬레이션은 이 요건을 충족하기에 최적의 위치에 있다.",
+          "세일즈KR은 유럽 규제 컨설턴트 및 잠재 유통 파트너들과 협력해 INYOE의 EU 시장 진입이 단기 기회주의적 판매가 아닌 장기적 성공을 위해 구조화될 수 있도록 하고 있다. 한국의 가장 존경받는 더마코스메틱 브랜드들의 성공을 이끈 것과 동일한 수준의 전문적인 브랜드 포지셔닝과 채널 관리로 유럽 시장에서 INYOE를 확립하는 것이 목표다.",
+        ],
+      },
+    ],
+
+    conclusionHeading: "SalesKR's Vision: Building Korea's Next Global Beauty Brand",
+    conclusionHeadingKo: "세일즈KR의 비전: 한국의 다음 글로벌 뷰티 브랜드 육성",
+
+    conclusionParagraphs: [
+      "SalesKR's partnership with INYOE is a deliberate expression of the company's evolving vision for its role in the global K-Beauty ecosystem. The company's track record in B2B cosmetics distribution — built across 47 countries and more than 70 verified Korean brands — provides the infrastructure and buyer relationships to accelerate a promising brand's international trajectory. But infrastructure alone is not what makes a global brand. What makes a global brand is the combination of a compelling product story, clinical ingredient credibility, and a distribution partner who is invested in the brand's long-term success rather than short-term transactional volume.",
+      "SalesKR is committed to being that kind of partner for INYOE, and for other promising Korean brands that have the potential to follow in the footsteps of K-Beauty's most celebrated global success stories. International buyers interested in learning more about INYOE, placing wholesale inquiries, or exploring distribution partnership opportunities are encouraged to contact SalesKR directly at www.saleskr.com. Our team responds to all inquiries within 24 hours.",
+    ],
+
+    conclusionParagraphsKo: [
+      "세일즈KR과 INYOE의 파트너십은 글로벌 K-뷰티 생태계에서 자사의 역할에 대한 회사의 진화하는 비전을 의도적으로 표현한 것이다. 47개국, 70개 이상의 검증된 한국 브랜드에 걸쳐 구축된 B2B 화장품 유통의 실적은 유망 브랜드의 국제적 성장 궤적을 가속화할 인프라와 바이어 관계를 제공한다. 그러나 인프라만으로는 글로벌 브랜드가 만들어지지 않는다. 글로벌 브랜드를 만드는 것은 매력적인 제품 스토리, 임상적 성분 신뢰성, 그리고 단기 거래량이 아닌 브랜드의 장기적 성공에 투자하는 유통 파트너의 조합이다.",
+      "세일즈KR은 INYOE를 위해, 그리고 K-뷰티의 가장 빛나는 글로벌 성공 스토리의 발자취를 따를 잠재력을 가진 다른 유망 한국 브랜드들을 위해 그런 파트너가 되기로 했다. INYOE에 대해 더 알아보거나 도매 문의 또는 유통 파트너십 기회를 탐색하고자 하는 해외 바이어들은 www.saleskr.com을 통해 세일즈KR에 직접 문의하시기 바랍니다. 모든 문의에 24시간 이내로 답변드립니다.",
+    ],
+  },
+  
     // ──────────────────────────────────────────────────────────
   // 기사 5 · PARTNERSHIP · 2026-05-11
   // ──────────────────────────────────────────────────────────

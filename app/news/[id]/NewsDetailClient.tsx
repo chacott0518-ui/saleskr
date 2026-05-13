@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import type { NewsArticle } from "../data";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Props {
   article: NewsArticle;
@@ -13,11 +15,26 @@ const categoryColor: Record<string, string> = {
   GLOBAL:      "#1E5FA8",
   MARKET:      "#0F6E56",
   PARTNERSHIP: "#BA7517",
+  INDUSTRY:    "#993556",
+  "K-FOOD":    "#0F6E56",
   CSR:         "#993556",
 };
 
 export default function NewsDetailClient({ article, nextArticle }: Props) {
+  const { lang, setLang } = useLanguage();
   const catColor = categoryColor[article.category] ?? "#1E5FA8";
+  const isKo = lang === "ko";
+  const hasKo = !!article.titleKo;
+
+  const title     = isKo && article.titleKo     ? article.titleKo     : article.title;
+  const subtitle  = isKo && article.subtitleKo  ? article.subtitleKo  : article.subtitle;
+  const lead      = isKo && article.leadKo      ? article.leadKo      : article.lead;
+  const sections  = isKo && article.sectionsKo  ? article.sectionsKo  : article.sections;
+  const conHeading = isKo && article.conclusionHeadingKo ? article.conclusionHeadingKo : article.conclusionHeading;
+  const conParas   = isKo && article.conclusionParagraphsKo ? article.conclusionParagraphsKo : article.conclusionParagraphs;
+  const img2Cap   = isKo && article.image2CaptionKo ? article.image2CaptionKo : article.image2Caption;
+  const img3Cap   = isKo && article.image3CaptionKo ? article.image3CaptionKo : article.image3Caption;
+  const pullquote = isKo && article.pullquoteKo ? article.pullquoteKo : article.pullquote;
 
   return (
     <main className="min-h-screen bg-white">
@@ -33,7 +50,7 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
           <img
             src={article.mainImage}
             className="h-full w-full object-cover"
-            alt={article.title}
+            alt={title}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
@@ -50,11 +67,11 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
               >
                 {article.category}
               </span>
-              <h1 className="text-3xl font-black leading-[1.15] tracking-tight text-white md:text-[56px]">
-                {article.title}
+              <h1 className="text-3xl font-black leading-[1.15] tracking-tight text-white md:text-[52px]">
+                {title}
               </h1>
               <p className="mt-4 text-base font-medium text-white/70 md:text-xl">
-                {article.subtitle}
+                {subtitle}
               </p>
             </motion.div>
           </div>
@@ -78,11 +95,32 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
           <span className="text-[11px] font-bold uppercase tracking-[.08em] text-[#6B6B60]">
             8 min read
           </span>
-          <div className="ml-auto">
-            <span className="cursor-pointer text-[11px] font-bold uppercase tracking-[.08em] text-[#1E5FA8] hover:underline">
-              Share ↗
-            </span>
-          </div>
+
+          {/* 한/영 토글 — 한국어 필드가 있는 기사에만 표시 */}
+          {hasKo && (
+            <div className="ml-auto flex items-center overflow-hidden rounded-full border border-[#E0DED8]">
+              <button
+                onClick={() => setLang("en")}
+                className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-[.08em] transition-all"
+                style={{
+                  background: !isKo ? "#0A1F44" : "transparent",
+                  color: !isKo ? "white" : "#6B6B60",
+                }}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("ko")}
+                className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-[.08em] transition-all"
+                style={{
+                  background: isKo ? "#0A1F44" : "transparent",
+                  color: isKo ? "white" : "#6B6B60",
+                }}
+              >
+                KO
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -91,33 +129,31 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
 
         {/* Lead */}
         <p className="mb-10 text-lg font-medium leading-[1.85] text-[#0A1F44] md:text-xl">
-          {article.lead}
+          {lead}
         </p>
 
         {/* Stats strip */}
         <div className="mb-12 grid grid-cols-3 gap-3 rounded-2xl bg-[#EEF4FF] p-6 md:gap-5 md:p-8">
           {article.stats.map((s) => (
             <div key={s.label}>
-              <div className="text-[26px] font-extrabold leading-none text-[#0A1F44] md:text-[34px]">
+              <div className="text-[22px] font-extrabold leading-none text-[#0A1F44] md:text-[34px]">
                 {s.value}
               </div>
               <div className="mt-1.5 text-[10px] font-bold uppercase tracking-wider text-[#6B6B60]">
-                {s.label}
+                {isKo && s.labelKo ? s.labelKo : s.label}
               </div>
             </div>
           ))}
         </div>
 
         {/* Section 1 */}
-        {article.sections[0] && (
+        {sections[0] && (
           <>
             <h2 className="mb-5 mt-2 text-[22px] font-extrabold leading-tight text-[#0A1F44] md:text-[28px]">
-              {article.sections[0].heading}
+              {sections[0].heading}
             </h2>
-            {article.sections[0].paragraphs.map((p, i) => (
-              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">
-                {p}
-              </p>
+            {sections[0].paragraphs.map((p, i) => (
+              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">{p}</p>
             ))}
           </>
         )}
@@ -127,25 +163,23 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
           <div className="overflow-hidden rounded-2xl">
             <img
               src={article.image2}
-              alt={article.image2Caption}
+              alt={img2Cap}
               className="h-[240px] w-full object-cover transition-transform duration-500 hover:scale-105 md:h-[400px]"
             />
           </div>
           <figcaption className="mt-3 text-center text-[12px] italic text-[#6B6B60]">
-            {article.image2Caption}
+            {img2Cap}
           </figcaption>
         </figure>
 
         {/* Section 2 */}
-        {article.sections[1] && (
+        {sections[1] && (
           <>
             <h2 className="mb-5 text-[22px] font-extrabold leading-tight text-[#0A1F44] md:text-[28px]">
-              {article.sections[1].heading}
+              {sections[1].heading}
             </h2>
-            {article.sections[1].paragraphs.map((p, i) => (
-              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">
-                {p}
-              </p>
+            {sections[1].paragraphs.map((p, i) => (
+              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">{p}</p>
             ))}
           </>
         )}
@@ -154,7 +188,7 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
         <blockquote className="relative my-12 overflow-hidden rounded-2xl bg-[#0A1F44] px-8 py-8 md:px-10 md:py-10">
           <div className="absolute left-0 top-0 h-full w-1 bg-[#4A9EFF]" />
           <p className="text-[18px] font-bold italic leading-[1.6] text-white md:text-[22px]">
-            {article.pullquote}
+            {pullquote}
           </p>
           <footer className="mt-5 text-[11px] font-bold uppercase tracking-[.08em] text-white/50">
             {article.pullquoteAuthor}
@@ -162,15 +196,25 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
         </blockquote>
 
         {/* Section 3 */}
-        {article.sections[2] && (
+        {sections[2] && (
           <>
             <h2 className="mb-5 text-[22px] font-extrabold leading-tight text-[#0A1F44] md:text-[28px]">
-              {article.sections[2].heading}
+              {sections[2].heading}
             </h2>
-            {article.sections[2].paragraphs.map((p, i) => (
-              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">
-                {p}
-              </p>
+            {sections[2].paragraphs.map((p, i) => (
+              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">{p}</p>
+            ))}
+          </>
+        )}
+
+        {/* Section 4 */}
+        {sections[3] && (
+          <>
+            <h2 className="mb-5 text-[22px] font-extrabold leading-tight text-[#0A1F44] md:text-[28px]">
+              {sections[3].heading}
+            </h2>
+            {sections[3].paragraphs.map((p, i) => (
+              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">{p}</p>
             ))}
           </>
         )}
@@ -180,23 +224,33 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
           <div className="overflow-hidden rounded-2xl">
             <img
               src={article.image3}
-              alt={article.image3Caption}
+              alt={img3Cap}
               className="h-[240px] w-full object-cover transition-transform duration-500 hover:scale-105 md:h-[380px]"
             />
           </div>
           <figcaption className="mt-3 text-center text-[12px] italic text-[#6B6B60]">
-            {article.image3Caption}
+            {img3Cap}
           </figcaption>
         </figure>
 
+        {/* Section 5 */}
+        {sections[4] && (
+          <>
+            <h2 className="mb-5 text-[22px] font-extrabold leading-tight text-[#0A1F44] md:text-[28px]">
+              {sections[4].heading}
+            </h2>
+            {sections[4].paragraphs.map((p, i) => (
+              <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">{p}</p>
+            ))}
+          </>
+        )}
+
         {/* Conclusion */}
         <h2 className="mb-5 text-[22px] font-extrabold leading-tight text-[#0A1F44] md:text-[28px]">
-          {article.conclusionHeading}
+          {conHeading}
         </h2>
-        {article.conclusionParagraphs.map((p, i) => (
-          <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">
-            {p}
-          </p>
+        {conParas.map((p, i) => (
+          <p key={i} className="mb-6 text-[16px] leading-[1.95] text-[#2A2A28]">{p}</p>
         ))}
 
         {/* Divider */}
@@ -209,7 +263,7 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
             className="flex items-center gap-2 text-[12px] font-black uppercase tracking-[.08em] text-[#1E5FA8] transition-all hover:gap-3"
           >
             <span>←</span>
-            <span>Back to Newsroom</span>
+            <span>{isKo ? "뉴스룸으로" : "Back to Newsroom"}</span>
           </Link>
 
           {nextArticle && (
@@ -219,7 +273,7 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
             >
               <div>
                 <div className="text-right text-[10px] font-bold uppercase tracking-[.08em] text-[#6B6B60]">
-                  Next Article
+                  {isKo ? "다음 기사" : "Next Article"}
                 </div>
                 <div className="mt-1 max-w-[160px] text-right text-[12px] font-bold leading-tight text-[#0A1F44]">
                   {nextArticle.title}

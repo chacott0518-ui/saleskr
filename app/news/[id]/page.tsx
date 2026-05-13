@@ -36,8 +36,6 @@ export default async function NewsDetailPage({
   const { id } = await params;
   const article = getArticleById(id);
   if (!article) notFound();
-
   const nextArticle = getNextArticle(id);
-
-  return <NewsDetailClient article={article} nextArticle={nextArticle} />;
+  return <NewsDetailClient article={article!} nextArticle={nextArticle} />;
 }
