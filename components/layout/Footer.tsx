@@ -482,7 +482,7 @@ export default function Footer() {
 
                 <Link href="/">
                   <img
-                    src="/images/logo.png"
+                    src="/images/saleskr-logo.png"
                     alt="SalesKR"
                     className="h-8 w-auto object-contain md:h-11"
                   />

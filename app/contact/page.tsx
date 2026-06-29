@@ -319,6 +319,15 @@ export default function ContactPage() {
             <span className="eyebrow">STEP 02</span>
             <h2 className="mt-3 text-2xl font-extrabold text-navy md:text-3xl">{t("contact_page.step2")}</h2>
 
+            <div
+  className="mt-5 mb-8 rounded-md border-l-[3px] bg-blue-50 px-4 py-3 text-[13px] leading-6 text-gray-600"
+  style={{ borderLeftColor: "#1E5FA8" }}
+>
+  <strong>Please note:</strong> Most brands have a minimum order value of{" "}
+  <strong>USD 5,000–8,000 or higher.</strong> Minimum order requirements may
+  vary depending on the brand.
+</div>
+
             {/* 성공 메시지 */}
             {submitStatus === "success" && (
               <div

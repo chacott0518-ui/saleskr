@@ -96,7 +96,7 @@ export default function Header() {
           {/* 로고 */}
           <Link href="/" className="flex items-center">
             <img
-              src="/images/logo.png"
+              src="/images/saleskr-logo.png"
               alt="SalesKR"
               style={{ height: "90px", width: "auto", objectFit: "contain" }}
             />
