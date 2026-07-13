@@ -68,10 +68,10 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
               >
                 {article.category}
               </span>
-              <h1 className="text-2xl font-black leading-[1.2] tracking-tight text-white md:text-[52px]">
+              <h1 className="!text-xl font-black leading-[1.25] tracking-tight text-white md:!text-[52px]">
   {title}
 </h1>
-<p className="mt-3 text-sm font-medium text-white md:text-xl" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
+<p className="mt-2 !text-xs leading-[1.4] font-medium md:mt-3 md:!text-xl md:leading-normal" style={{ color: "#ffffff" }}>
   {subtitle}
 </p>
             </motion.div>
