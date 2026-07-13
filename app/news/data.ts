@@ -19,8 +19,8 @@ export interface NewsArticle {
   image2: string;
   image2Caption: string;
   image2CaptionKo?: string;
-  image3: string;
-  image3Caption: string;
+  image3?: string;
+  image3Caption?: string;
   image3CaptionKo?: string;
   stats: { value: string; label: string; labelKo?: string }[];
   pullquote: string;
@@ -34,9 +34,110 @@ export interface NewsArticle {
   conclusionHeadingKo?: string;
   conclusionParagraphs: string[];
   conclusionParagraphsKo?: string[];
+  products?: { image: string; name: string; description: string; features: string[] }[];
 }
 
 export const NEWS_ARTICLES: NewsArticle[] = [
+  {
+    id: "saleskr-k-health-drinks-2026",
+    date: "2026-07-13",
+    dateDisplay: "JUL 13, 2026",
+    category: "HEALTH",
+
+    title: "Beyond K-Beauty: K-Health Drinks from Korea Expand into the Global Market",
+
+    subtitle:
+      "Premium Korean functional beverages are becoming the next promising export category, following the global success of Korean cosmetics.",
+
+    excerpt:
+      "As K-Beauty continues to achieve remarkable success worldwide, a new Korean industry is rapidly gaining international attention—K-Health Drinks. SalesKR is introducing premium Korean health drink brands to global buyers.",
+
+    listImage: "/images/bogo-royal-collagen.png",
+    mainImage: "/images/bogo-royal-collagen.png",
+
+    image2: "/images/bogo-royal-collagen.png",
+    image2Caption: "Premium Korean functional beverages are gaining traction with global consumers seeking healthier lifestyles and convenient nutrition.",
+
+    stats: [
+      { value: "4",        label: "Featured Products" },
+      { value: "5",        label: "Export Regions" },
+      { value: "K-Health", label: "Next Export Category" },
+    ],
+
+    pullquote:
+      '"Following the global success of K-Beauty, we believe K-Health Drinks — Korean red ginseng, collagen, and functional beverages — represent the next major export opportunity for Korean wellness brands."',
+    pullquoteAuthor: "SalesKR Health & Wellness Division",
+
+    lead:
+      "As K-Beauty continues to achieve remarkable success worldwide, a new Korean industry is rapidly gaining international attention—K-Health Drinks. Premium Korean functional beverages are becoming increasingly popular among global consumers who are seeking healthier lifestyles, convenient nutrition, and high-quality wellness products. Following the global success of Korean cosmetics, Korean health drinks are emerging as the next promising export category.",
+
+    sections: [
+      {
+        heading: "Introducing Korea's Premium Health Drink Brands",
+        paragraphs: [
+          "SalesKR is actively introducing premium Korean health drink brands to international distributors, wholesalers, retailers, and online marketplaces across Europe, the Middle East, Latin America, North America, and Asia.",
+          "Below are four featured products currently being introduced to overseas buyers.",
+        ],
+      },
+    ],
+
+    products: [
+      {
+        image: "/images/youngjin-red-ginseng.jpg",
+        name: "Youngjin Premium Red Ginseng Drink",
+        description:
+          "Made with premium Korean red ginseng, one of Korea's most recognized health ingredients. Designed for consumers with active lifestyles, it delivers the authentic taste and heritage of Korean ginseng in a convenient ready-to-drink format.",
+        features: [
+          "Premium Korean Red Ginseng",
+          "Convenient ready-to-drink beverage",
+          "Ideal for wellness and daily vitality",
+          "Suitable for premium retail and gift markets",
+        ],
+      },
+      {
+        image: "/images/bogo-royal-collagen.png",
+        name: "BOGO The Royal Collagen 30+",
+        description:
+          "A premium collagen beverage developed for consumers seeking beauty and wellness in their daily routine. Its convenient packaging and modern design make it an attractive product for international beauty and health markets.",
+        features: [
+          "Collagen-infused functional drink",
+          "Daily beauty and wellness support",
+          "Convenient single-serving format",
+          "Strong appeal for global beauty consumers",
+        ],
+      },
+      {
+        image: "/images/bogo-energy-shot.jpg",
+        name: "BOGO Energy Shot",
+        description:
+          "A convenient functional energy drink designed for busy professionals, students, travelers, and active consumers. Its compact shot format makes it easy to consume anytime and anywhere.",
+        features: [
+          "Compact energy shot format",
+          "Convenient on-the-go consumption",
+          "Designed for active lifestyles",
+          "Suitable for international convenience and retail channels",
+        ],
+      },
+      {
+        image: "/images/youngjin-vitac-gold.jpg",
+        name: "Youngjin Vita C Gold",
+        description:
+          "A refreshing vitamin beverage containing Vitamin C, offering a pleasant taste and convenient daily consumption. Suitable for consumers looking for an easy way to enjoy a healthy lifestyle.",
+        features: [
+          "Vitamin C beverage",
+          "Refreshing taste",
+          "Daily wellness support",
+          "Suitable for a wide range of consumers",
+        ],
+      },
+    ],
+
+    conclusionHeading: "Expanding Korean Health Drink Exports Worldwide",
+    conclusionParagraphs: [
+      "SalesKR is currently working with overseas distributors, importers, wholesalers, and retail partners to expand the global distribution of premium Korean health drinks.",
+      "As international demand for Korean wellness products continues to grow, K-Health Drinks are expected to become one of Korea's next major export categories alongside K-Beauty. SalesKR remains committed to connecting global buyers with reliable Korean manufacturers and premium brands while promoting high-quality Korean health beverages to markets around the world.",
+    ],
+  },
   // ──────────────────────────────────────────────────────────
   // PARTNERSHIP · 2026-06-26
   // ──────────────────────────────────────────────────────────

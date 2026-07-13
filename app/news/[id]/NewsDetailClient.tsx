@@ -18,6 +18,7 @@ const categoryColor: Record<string, string> = {
   INDUSTRY:    "#993556",
   "K-FOOD":    "#0F6E56",
   CSR:         "#993556",
+  HEALTH: "#0D7377",
 };
 
 export default function NewsDetailClient({ article, nextArticle }: Props) {
@@ -67,12 +68,12 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
               >
                 {article.category}
               </span>
-              <h1 className="text-3xl font-black leading-[1.15] tracking-tight text-white md:text-[52px]">
-                {title}
-              </h1>
-              <p className="mt-4 text-base font-medium text-white/70 md:text-xl">
-                {subtitle}
-              </p>
+              <h1 className="text-2xl font-black leading-[1.2] tracking-tight text-white md:text-[52px]">
+  {title}
+</h1>
+<p className="mt-3 text-sm font-medium text-white md:text-xl" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
+  {subtitle}
+</p>
             </motion.div>
           </div>
         </div>
@@ -159,18 +160,36 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
         )}
 
         {/* Image 2 */}
-        <figure className="my-12">
-          <div className="overflow-hidden rounded-2xl">
-            <img
-              src={article.image2}
-              alt={img2Cap}
-              className="h-[240px] w-full object-cover transition-transform duration-500 hover:scale-105 md:h-[400px]"
-            />
+        {article.products ? (
+          <div className="my-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {article.products.map((p) => (
+              <div key={p.name} className="overflow-hidden rounded-2xl border border-[#F0EEE8] bg-white shadow-sm">
+                <div className="h-[220px] overflow-hidden bg-[#FAFAF8]">
+                  <img src={p.image} alt={p.name} className="h-full w-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-[16px] font-extrabold leading-tight text-[#0A1F44]">{p.name}</h3>
+                  <p className="mt-2 text-[13px] leading-[1.7] text-[#4A4A45]">{p.description}</p>
+                  <ul className="mt-4 space-y-1.5">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-[12px] font-medium text-[#2A2A28]">
+                        <span className="mt-[3px] h-[5px] w-[5px] flex-shrink-0 rounded-full bg-[#0D7377]" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
-          <figcaption className="mt-3 text-center text-[12px] italic text-[#6B6B60]">
-            {img2Cap}
-          </figcaption>
-        </figure>
+        ) : (
+          <figure className="my-12">
+            <div className="overflow-hidden rounded-2xl">
+              <img src={article.image2} alt={img2Cap} className="h-[240px] w-full object-cover transition-transform duration-500 hover:scale-105 md:h-[400px]" />
+            </div>
+            <figcaption className="mt-3 text-center text-[12px] italic text-[#6B6B60]">{img2Cap}</figcaption>
+          </figure>
+        )}
 
         {/* Section 2 */}
         {sections[1] && (
@@ -220,18 +239,20 @@ export default function NewsDetailClient({ article, nextArticle }: Props) {
         )}
 
         {/* Image 3 */}
-        <figure className="my-12">
-          <div className="overflow-hidden rounded-2xl">
-            <img
-              src={article.image3}
-              alt={img3Cap}
-              className="h-[240px] w-full object-cover transition-transform duration-500 hover:scale-105 md:h-[380px]"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-[12px] italic text-[#6B6B60]">
-            {img3Cap}
-          </figcaption>
-        </figure>
+        {article.image3 && (
+          <figure className="my-12">
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src={article.image3}
+                alt={img3Cap}
+                className="h-[240px] w-full object-cover transition-transform duration-500 hover:scale-105 md:h-[380px]"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-[12px] italic text-[#6B6B60]">
+              {img3Cap}
+            </figcaption>
+          </figure>
+        )}
 
         {/* Section 5 */}
         {sections[4] && (
