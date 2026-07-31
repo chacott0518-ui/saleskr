@@ -38,6 +38,84 @@ export interface NewsArticle {
 }
 
 export const NEWS_ARTICLES: NewsArticle[] = [
+    // ──────────────────────────────────────────────────────────
+  // SERVICE · 2026-07-31
+  // ──────────────────────────────────────────────────────────
+  {
+    id: "saleskr-fast-track-ready-stock-2026",
+    date: "2026-07-31",
+    dateDisplay: "JUL 31, 2026",
+    category: "SERVICE",
+
+    title:
+      "SalesKR Launches Fast-Track Ready Stock Service for Global K-Beauty Buyers",
+
+    subtitle:
+      "A faster sourcing option for buyers who need selected Korean skincare products without the standard multi-week lead time.",
+
+    excerpt:
+      "SalesKR's Fast-Track Ready Stock Service gives global buyers access to selected K-Beauty products with shorter lead times for urgent orders, promotional campaigns, inventory replenishment, and product testing.",
+
+    listImage:
+      "/images/saleskr-fast-track-ready-stock-thumb.webp",
+
+    mainImage:
+      "/images/saleskr-fast-track-ready-stock-hero.webp",
+
+    image2:
+      "/images/saleskr-fast-track-ready-stock-thumb.webp",
+
+    image2Caption:
+      "Selected K-Beauty products available through SalesKR's Fast-Track Ready Stock Service can be prepared for shipment more quickly than standard purchase orders.",
+
+    stats: [
+      { value: "10", label: "Featured Brands" },
+      { value: "Fast", label: "Shorter Lead Times" },
+      { value: "Flexible", label: "Sourcing Option" },
+    ],
+
+    pullquote:
+      '"For buyers managing urgent demand, faster product availability can provide greater business value than waiting several additional weeks for a standard order."',
+
+    pullquoteAuthor:
+      "SalesKR Global Sales Team",
+
+    lead:
+      "Global demand for Korean cosmetics continues to grow, but long lead times remain a persistent challenge for many of the industry's most popular brands. Production schedules, brand allocation policies, and rising international demand can delay shipment by several weeks. To help global buyers respond more quickly, SalesKR has launched its Fast-Track Ready Stock Service for selected products available through its trusted supply network.",
+
+    sections: [
+      {
+        heading: "What Is Fast-Track Ready Stock?",
+        paragraphs: [
+          "Fast-Track Ready Stock refers to selected K-Beauty products that are already available through SalesKR's trusted supply network and can be prepared for shipment significantly faster than standard purchase orders.",
+          "The service is particularly useful for urgent customer orders, promotional campaigns, low-inventory situations, rapid market replenishment, and new product testing.",
+          "Because these products are available for faster preparation, pricing may be slightly higher than standard order pricing. However, many buyers find that shorter delivery times provide greater business value than waiting several additional weeks.",
+        ],
+      },
+      {
+        heading: "Available K-Beauty Brands",
+        paragraphs: [
+          "Depending on current market availability, Fast-Track Ready Stock may include selected products from popular Korean beauty brands such as Round Lab, SKIN1004, Torriden, Anua, Beauty of Joseon, Medicube, Dr. Althea, House of Hur, KSECRET, and INYOE.",
+          "Available brands, products, quantities, and prices change frequently according to market conditions and stock availability. Buyers should request the latest stock list before placing an order.",
+        ],
+      },
+      {
+        heading: "Flexible Supply for Global Distributors",
+        paragraphs: [
+          "SalesKR understands that every buyer has different purchasing priorities. Some customers prefer the most competitive pricing available through standard ordering, while others need faster access to products in order to meet urgent market demand.",
+          "The Fast-Track Ready Stock Service provides an additional sourcing option, allowing importers, distributors, wholesalers, and retailers to choose the purchasing method that best supports their inventory plans, sales schedules, and business objectives.",
+        ],
+      },
+    ],
+
+    conclusionHeading:
+      "Request the Latest Fast-Track Ready Stock List",
+
+    conclusionParagraphs: [
+      "Global buyers seeking ready-stock Korean cosmetics, urgent K-Beauty wholesale supply, or faster access to popular Korean skincare brands can contact SalesKR to check current availability.",
+      "Contact SalesKR today to request the latest Fast-Track Ready Stock list and quotation. Product availability, quantities, pricing, and shipment preparation times are confirmed individually at the time of inquiry.",
+    ],
+  },
   {
     id: "saleskr-k-health-drinks-2026",
     date: "2026-07-13",
